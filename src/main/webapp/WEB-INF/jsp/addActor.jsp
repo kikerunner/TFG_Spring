@@ -12,9 +12,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert New Actor</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
 <body>
-<form action="/LoadActorsList" method="post">
+<div class="container">
+<button type="button" class="btn btn-primary">Primary</button>
+
+<form  action="/LoadActorsList" method="post">
 		<input type="submit" value="Ver listado"/>
 </form>
 	<form:form action="/addActor" method="post" modelAttribute="actor">
@@ -49,5 +53,8 @@
 				
 		</tbody>
 	</table>
+	
+	</div>
+	<script src="js/bootstrap.min.js"></script> 
 </body>
 </html>

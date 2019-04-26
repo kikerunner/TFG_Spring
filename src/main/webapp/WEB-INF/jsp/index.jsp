@@ -1,12 +1,17 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap.min.css">   		
+  
 <title>Index Page</title>
 </head>
 <body>
+<div class="container">
+<button type="button" class="btn btn-primary">Primary</button>
 	<h1>Hola que tal este es mi TFG</h1>
 	<div>
 		<a href="addActor">1 y 5-Actores y buscador de actor entre fechas</a>
@@ -28,7 +33,7 @@
 	<div>
 		<a href="/ActorSearcher">7-Buscador de director por actor</a><br/>
 	</div>
-
-	
+</div>
+<script src="js/bootstrap.min.js"></script>  
 </body>
 </html>
