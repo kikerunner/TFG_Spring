@@ -11,7 +11,7 @@ public class ConnectionH2 implements ConnectionManager {
 		Connection conn = null;
 		try {
 			Class.forName("org.h2.Driver");
-			conn = DriverManager.getConnection(jdbcUrl, "sa", "");
+			conn = DriverManager.getConnection(jdbcUrl, "Root", "IVSZ2h12");
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
