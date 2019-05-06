@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import es.salesianos.connection.ConnectionH2;
+import es.salesianos.connection.ConnectionSQL;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Film;
 
@@ -18,7 +18,7 @@ import es.salesianos.model.Film;
 public class RepositoryFilm {
 	
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
-	ConnectionManager manager = new ConnectionH2();
+	ConnectionManager manager = new ConnectionSQL();
 
 
 	private void close(PreparedStatement prepareStatement) {

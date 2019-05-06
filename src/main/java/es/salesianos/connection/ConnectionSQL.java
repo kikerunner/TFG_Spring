@@ -5,13 +5,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ConnectionH2 implements ConnectionManager {
+public class ConnectionSQL implements ConnectionManager {
 
 	public Connection open(String jdbcUrl) {
 		Connection conn = null;
 		try {
 			Class.forName("org.h2.Driver");
-			conn = DriverManager.getConnection(jdbcUrl, "Root", "IVSZ2h12");
+			conn = DriverManager.getConnection(jdbcUrl, "root", "IVSZ2h12");
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

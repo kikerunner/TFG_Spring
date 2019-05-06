@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import es.salesianos.connection.ConnectionH2;
+import es.salesianos.connection.ConnectionSQL;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Actor;
 import es.salesianos.model.Film;
@@ -16,7 +16,7 @@ import es.salesianos.model.FilmActors;
 public class RepositoryFilmActors {
 	
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
-	ConnectionManager manager = new ConnectionH2();
+	ConnectionManager manager = new ConnectionSQL();
 
 
 	private void close(PreparedStatement prepareStatement) {

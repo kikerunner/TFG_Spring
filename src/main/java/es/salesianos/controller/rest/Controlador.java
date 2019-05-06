@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.salesianos.model.Actor;
+import es.salesianos.model.Airplane;
 import es.salesianos.model.Director;
 import es.salesianos.model.Film;
 import es.salesianos.model.FilmActors;
 import es.salesianos.service.ActorService;
+import es.salesianos.service.AirplaneService;
 import es.salesianos.service.DirectorService;
 import es.salesianos.service.FilmActorService;
 import es.salesianos.service.FilmService;
@@ -33,7 +35,9 @@ public class Controlador {
 	@Autowired 
 	List<Actor> listAllActors;
 	
-	
+	@Autowired 
+	@Qualifier("airplaneservice")
+	AirplaneService airplaneservice;
 
 
 
@@ -50,6 +54,19 @@ public class Controlador {
 	@Autowired FilmActors filmactor;
 	
 	////1punto
+	
+	@GetMapping(path="addAirplane")
+	public ModelAndView getAddAirplanePage() {
+		ModelAndView model = new ModelAndView("addAirplane");
+		model.addObject("airplane",new Airplane());
+		return model;
+	}
+	
+	@PostMapping(path="/addAirplane")
+	public String saveAirplane(Airplane airplane)  {
+		airplaneservice.addAirplane(airplane);
+		return "index";
+	}
 	
 	@GetMapping(path="addActor")
 	public ModelAndView getAddActorPage() {

@@ -14,7 +14,10 @@
 <button type="button" class="btn btn-primary">Primary</button>
 	<h1>Hola que tal este es mi TFG</h1>
 	<div>
-		<a href="addActor">1 y 5-Actores y buscador de actor entre fechas</a>
+		<a href="/addAirplane">Add an Airplane</a>
+	</div>
+	<div>
+		<a href="/addActor">1 y 5-Actores y buscador de actor entre fechas</a>
 	</div>
 	
 	<div>
