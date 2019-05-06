@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import es.salesianos.connection.ConnectionSQL;
@@ -23,7 +24,7 @@ public class RepositoryAirplane {
 	
 	private static final String jdbcUrl = "jdbc:mysql://localhost:3306/TFG";
 	ConnectionManager manager = new ConnectionSQL();
-
+	@Autowired Airplane airplaneinDatabase;
 
 	private void close(PreparedStatement prepareStatement) {
 		try {
@@ -45,19 +46,40 @@ public class RepositoryAirplane {
 
 	public void insertAirplane(Airplane airplane) {
 		Connection conn = manager.open(jdbcUrl);
-		PreparedStatement preparedStatement = null;
+		PreparedStatement prepareStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("INSERT INTO Airplanes (AIRPLANENAME) VALUES (?)");
-			preparedStatement.setString(1, airplane.getAirplaneName());
-			preparedStatement.executeUpdate();
+			prepareStatement = conn.prepareStatement("INSERT INTO Airplanes (AIRPLANENAME) VALUES (?)");
+			prepareStatement.setString(1, airplane.getAirplaneName());
+			prepareStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			close(preparedStatement);
+			close(prepareStatement);
 		}
-		
-		
 		manager.close(conn);
 	}
+	
+	public List<Airplane> sellectAllAirplanes() {
+		List<Airplane> listAirplanes = new ArrayList<Airplane>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT * FROM Airplanes");
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				listAirplanes.add(airplaneinDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return listAirplanes;
+	}
+	
 }

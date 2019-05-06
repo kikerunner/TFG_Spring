@@ -36,6 +36,9 @@ public class Controlador {
 	List<Actor> listAllActors;
 	
 	@Autowired 
+	List<Airplane> listAllAirplanes;
+	
+	@Autowired 
 	@Qualifier("airplaneservice")
 	AirplaneService airplaneservice;
 
@@ -68,19 +71,14 @@ public class Controlador {
 		return "index";
 	}
 	
-	@GetMapping(path="addActor")
-	public ModelAndView getAddActorPage() {
-		ModelAndView model = new ModelAndView("addActor");
-		model.addObject("actor",new Actor());
+	@PostMapping(path = "/LoadAirplanesList")
+	public ModelAndView loadAirplaneList() {
+		listAllAirplanes = airplaneservice.listAllAirplanes();
+		System.out.println(listAllAirplanes);
+		ModelAndView model = new ModelAndView("listAllAirplanes");
+		model.addObject("listAllAirplanes", listAllAirplanes);
 		return model;
 	}
-	
-	@PostMapping(path="/addActor")
-	public String saveActor(Actor actor)  {
-		serviceactores.addActor(actor);
-		return "index";
-	}
-	
 	
 	@PostMapping(path = "/BetweenDates")
 	public ModelAndView fechas(@RequestParam int beginDate , @RequestParam int endDate) {

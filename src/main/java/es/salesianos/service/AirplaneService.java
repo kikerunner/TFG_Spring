@@ -29,6 +29,8 @@ public class AirplaneService {
 		repositoryAirplane.insertAirplane(airplane);
 	}
 	
-	
+	public List<Airplane> listAllAirplanes() {
+		return repositoryAirplane.sellectAllAirplanes();
+	}
 
 }

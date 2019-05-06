@@ -11,10 +11,12 @@
 </head>
 <body>
 <div class="container">
-<button type="button" class="btn btn-primary">Primary</button>
-	<h1>Hola que tal este es mi TFG</h1>
+	<h1>Enrique Airlines</h1>
 	<div>
 		<a href="/addAirplane">Add an Airplane</a>
+	</div>
+	<div>
+		<a href="/LoadAirplanesList">Airplanes List</a>
 	</div>
 	<div>
 		<a href="/addActor">1 y 5-Actores y buscador de actor entre fechas</a>
