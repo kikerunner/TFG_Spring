@@ -24,7 +24,6 @@ public class RepositoryAirplane {
 	
 	private static final String jdbcUrl = "jdbc:mysql://localhost:3306/TFG";
 	ConnectionManager manager = new ConnectionSQL();
-	@Autowired Airplane airplaneinDatabase;
 
 	private void close(PreparedStatement prepareStatement) {
 		try {
@@ -69,7 +68,11 @@ public class RepositoryAirplane {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Airplanes");
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				listAirplanes.add(airplaneinDatabase);
+				Airplane airplaneInDatabase = new Airplane();
+				airplaneInDatabase.setIDAirplane(resultSet.getInt(1));
+				airplaneInDatabase.setAirplaneName(resultSet.getString(2));
+				System.out.println(airplaneInDatabase.getAirplaneName());
+				listAirplanes.add(airplaneInDatabase);
 			}
 			
 		} catch (SQLException e) {

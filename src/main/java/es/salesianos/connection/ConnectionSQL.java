@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.TimeZone;
 
 public class ConnectionSQL implements ConnectionManager {
 
@@ -11,6 +12,7 @@ public class ConnectionSQL implements ConnectionManager {
 		Connection conn = null;
 		try {
 			Class.forName("org.h2.Driver");
+			TimeZone.getDefault();
 			conn = DriverManager.getConnection(jdbcUrl, "root", "IVSZ2h12");
 		} catch (Exception e) {
 			e.printStackTrace();

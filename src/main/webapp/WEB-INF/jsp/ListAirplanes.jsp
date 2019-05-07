@@ -14,29 +14,23 @@
 <title>List Airplanes</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
-<body>
+<body onload="/LoadAirplanesList" >
 <div class="container">
 <button type="button" class="btn btn-primary">Primary</button>
-
-<form  action="/LoadAirplanesList" >
-		<input type="submit" value="Ver listado"/>
-</form>
-	<table border="1">
+	<table class="table">
 		<thead>
 			<tr>
-				<td>Nombre</td>
+				<td>Airplane Name</td>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="airplane" items="${listAirplanes}">
-				<tr>
-					<td><c:out value="${airplane.AirplaneName}" /></td>
-				</tr>
+			<c:forEach var="airplane" items="${ListAirplanes}">
+			<tr>
+				<td><c:out value="${airplane.getAirplaneName()}" /></td>
+			</tr>
 			</c:forEach>
-				
 		</tbody>
 	</table>
-	
 	</div>
 	<script src="js/bootstrap.min.js"></script> 
 </body>

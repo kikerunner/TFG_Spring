@@ -71,12 +71,14 @@ public class Controlador {
 		return "index";
 	}
 	
-	@PostMapping(path = "/LoadAirplanesList")
+	@GetMapping(path = "/LoadAirplanesList")
 	public ModelAndView loadAirplaneList() {
 		listAllAirplanes = airplaneservice.listAllAirplanes();
-		System.out.println(listAllAirplanes);
-		ModelAndView model = new ModelAndView("listAllAirplanes");
-		model.addObject("listAllAirplanes", listAllAirplanes);
+		for (int i = 0; i < listAllAirplanes.size(); i++) {
+			System.out.println("En controlador:" + listAllAirplanes.get(i).getAirplaneName());
+		}
+		ModelAndView model = new ModelAndView("ListAirplanes");
+		model.addObject("ListAirplanes", listAllAirplanes);
 		return model;
 	}
 	
@@ -94,7 +96,7 @@ public class Controlador {
 	@PostMapping(path = "/LoadActorsList")
 	public ModelAndView loadActorList() {
 		listAllActors = serviceactores.listAllActors();
-		System.out.println(listAllActors);
+		System.out.println("Tamano de lista" + listAllActors.size());
 		ModelAndView model = new ModelAndView("addActor");
 		model.addObject("actor",new Actor());
 		model.addObject("listAllActors", listAllActors);
