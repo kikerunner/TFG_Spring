@@ -3,10 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/bootstrap.min.css">   	
 <meta charset="UTF-8">
 <title>Error page</title>
 </head>
 <body>
-ERROR !!!!!!
+<div align="center"><h1>SOMETHING IS WRONG!</h1></div>
+<script src="js/bootstrap.min.js"></script>  
 </body>
 </html>
