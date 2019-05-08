@@ -7,16 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import es.salesianos.connection.ConnectionSQL;
 import es.salesianos.connection.ConnectionManager;
-import es.salesianos.model.Actor;
 import es.salesianos.model.Airplane;
-import es.salesianos.model.Director;
-import es.salesianos.model.Film;
-import es.salesianos.model.FilmActors;
 
 
 @Repository("repositoryairplane")

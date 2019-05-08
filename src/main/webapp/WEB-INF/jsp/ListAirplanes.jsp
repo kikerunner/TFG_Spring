@@ -16,11 +16,10 @@
 </head>
 <body onload="/LoadAirplanesList" >
 <div class="container">
-<button type="button" class="btn btn-primary">Primary</button>
 	<table class="table">
 		<thead>
 			<tr>
-				<td>Airplane Name</td>
+				<th scope="col">Airplane Name</th>
 			</tr>
 		</thead>
 		<tbody>

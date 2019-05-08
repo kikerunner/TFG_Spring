@@ -8,12 +8,11 @@ import java.util.TimeZone;
 
 public class ConnectionSQL implements ConnectionManager {
 
-	public Connection open(String jdbcUrl) {
+	public Connection open(String sqlUrl) {
 		Connection conn = null;
 		try {
-			Class.forName("org.h2.Driver");
 			TimeZone.getDefault();
-			conn = DriverManager.getConnection(jdbcUrl, "root", "IVSZ2h12");
+			conn = DriverManager.getConnection(sqlUrl, "root", "IVSZ2h12");
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
