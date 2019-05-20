@@ -1,27 +1,36 @@
 package es.salesianos.model;
 
+import java.util.List;
+
 public class Country {
-	private int IDCity;
-	private String CityName;
+	private int IDCountry;
+	private String CountryName;
 	private String CountryCode;
+	private List<City> Cities;
 	
-	public int getIDCity() {
-		return IDCity;
+	public List<City> getCities() {
+		return Cities;
 	}
-	public void setIDCity(int iDCity) {
-		IDCity = iDCity;
-	}
-	public String getCityName() {
-		return CityName;
-	}
-	public void setCityName(String cityName) {
-		CityName = cityName;
+	public void setCities(List<City> cities) {
+		Cities = cities;
 	}
 	public String getCountryCode() {
 		return CountryCode;
 	}
 	public void setCountryCode(String countryCode) {
 		CountryCode = countryCode;
+	}
+	public int getIDCountry() {
+		return IDCountry;
+	}
+	public void setIDCountry(int iDCountry) {
+		IDCountry = iDCountry;
+	}
+	public String getCountryName() {
+		return CountryName;
+	}
+	public void setCountryName(String countryName) {
+		CountryName = countryName;
 	}
 
 }

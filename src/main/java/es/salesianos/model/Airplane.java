@@ -7,6 +7,7 @@ public class Airplane {
 	private int IDAirplane;
 	private String AirplaneName;
 	
+
 	public void setIDAirplane(int iDAirplane) {
 		IDAirplane = iDAirplane;
 	}
