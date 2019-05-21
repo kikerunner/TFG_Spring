@@ -16,6 +16,12 @@ public class Flight {
 	private CabrinCrewFlight Cabincrewflight;
 	private List<Reservation> Reservations;
 	
+	public List<Reservation> getReservations() {
+		return Reservations;
+	}
+	public void setReservations(List<Reservation> reservations) {
+		Reservations = reservations;
+	}
 	public int getIDFlight() {
 		return IDFlight;
 	}
