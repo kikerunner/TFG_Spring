@@ -2,35 +2,36 @@ package es.salesianos.model;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Country {
-	private int IDCountry;
-	private String CountryName;
-	private String CountryCode;
-	private List<City> Cities;
-	
-	public List<City> getCities() {
-		return Cities;
+	private int idcountry;
+	private String countryName;
+	private String countryCode;
+	private List<City> cities;
+	public int getIdcountry() {
+		return idcountry;
 	}
-	public void setCities(List<City> cities) {
-		Cities = cities;
-	}
-	public String getCountryCode() {
-		return CountryCode;
-	}
-	public void setCountryCode(String countryCode) {
-		CountryCode = countryCode;
-	}
-	public int getIDCountry() {
-		return IDCountry;
-	}
-	public void setIDCountry(int iDCountry) {
-		IDCountry = iDCountry;
+	public void setIdcountry(int idcountry) {
+		this.idcountry = idcountry;
 	}
 	public String getCountryName() {
-		return CountryName;
+		return countryName;
 	}
 	public void setCountryName(String countryName) {
-		CountryName = countryName;
+		this.countryName = countryName;
 	}
-
+	public String getCountryCode() {
+		return countryCode;
+	}
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
+	}
+	public List<City> getCities() {
+		return cities;
+	}
+	public void setCities(List<City> cities) {
+		this.cities = cities;
+	}
 }

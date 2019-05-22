@@ -1,47 +1,49 @@
 package es.salesianos.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class FoodAndDrink {
-	private int IDFoodAndDrink;
-	private String Food;
-	private String Dinner;
-	private String Extra1;
-	private String Extra2;
-	private String Extra3;
-	
-	public int getIDFoodAndDrink() {
-		return IDFoodAndDrink;
+	private int idfoodAndDrink;
+	private String food;
+	private String dinner;
+	private String extra1;
+	private String extra2;
+	private String extra3;
+	public int getIdfoodAndDrink() {
+		return idfoodAndDrink;
 	}
-	public void setIDFoodAndDrink(int iDFoodAndDrink) {
-		IDFoodAndDrink = iDFoodAndDrink;
+	public void setIdfoodAndDrink(int idfoodAndDrink) {
+		this.idfoodAndDrink = idfoodAndDrink;
 	}
 	public String getFood() {
-		return Food;
+		return food;
 	}
 	public void setFood(String food) {
-		Food = food;
+		this.food = food;
 	}
 	public String getDinner() {
-		return Dinner;
+		return dinner;
 	}
 	public void setDinner(String dinner) {
-		Dinner = dinner;
+		this.dinner = dinner;
 	}
 	public String getExtra1() {
-		return Extra1;
+		return extra1;
 	}
 	public void setExtra1(String extra1) {
-		Extra1 = extra1;
+		this.extra1 = extra1;
 	}
 	public String getExtra2() {
-		return Extra2;
+		return extra2;
 	}
 	public void setExtra2(String extra2) {
-		Extra2 = extra2;
+		this.extra2 = extra2;
 	}
 	public String getExtra3() {
-		return Extra3;
+		return extra3;
 	}
 	public void setExtra3(String extra3) {
-		Extra3 = extra3;
+		this.extra3 = extra3;
 	}
 }

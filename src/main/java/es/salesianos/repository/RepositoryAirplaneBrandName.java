@@ -12,10 +12,11 @@ import org.springframework.stereotype.Repository;
 import es.salesianos.connection.ConnectionSQL;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Airplane;
+import es.salesianos.model.AirplaneBrandName;
 
 
-@Repository("repositoryairplane")
-public class RepositoryAirplane {
+@Repository("repositoryairplaneBrandName")
+public class RepositoryAirplaneBrandName {
 	
 	private static final String jdbcUrl = "jdbc:mysql://localhost:3306/TFG";
 	ConnectionManager manager = new ConnectionSQL();
@@ -54,20 +55,20 @@ public class RepositoryAirplane {
 		manager.close(conn);
 	}
 	
-	public List<Airplane> sellectAllAirplanes() {
-		List<Airplane> listAirplanes = new ArrayList<Airplane>();
+	public List<AirplaneBrandName> sellectAllAirplanesBrandName() {
+		List<AirplaneBrandName> listAirplanesBrandName = new ArrayList<AirplaneBrandName>();
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement prepareStatement = null;
 		ResultSet resultSet = null;
 		try {
-			prepareStatement = conn.prepareStatement("SELECT * FROM Airplanes");
+			prepareStatement = conn.prepareStatement("SELECT * FROM AirplanesBrandName");
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				Airplane airplaneInDatabase = new Airplane();
-				airplaneInDatabase.setIdAirplane(resultSet.getInt(1));
-				airplaneInDatabase.setAirplaneName(resultSet.getString(2));
-				System.out.println(airplaneInDatabase.getAirplaneName());
-				listAirplanes.add(airplaneInDatabase);
+				AirplaneBrandName airplaneBrandNameInDatabase = new AirplaneBrandName();
+				airplaneBrandNameInDatabase.setIdairplaneBrandName(resultSet.getInt(1));
+				airplaneBrandNameInDatabase.setAirplaneBrandName(resultSet.getString(2));
+				listAirplanesBrandName.add(airplaneBrandNameInDatabase);
+				airplaneBrandNameInDatabase.getAirplaneBrandName();
 			}
 			
 		} catch (SQLException e) {
@@ -77,7 +78,7 @@ public class RepositoryAirplane {
 			close(prepareStatement);
 		}
 		manager.close(conn);
-		return listAirplanes;
+		return listAirplanesBrandName;
 	}
 	
 }

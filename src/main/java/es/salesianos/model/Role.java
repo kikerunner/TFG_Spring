@@ -1,19 +1,23 @@
 package es.salesianos.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Role {
-	private int IDRole;
-	private String RoleName;
-	
-	public int getIDRole() {
-		return IDRole;
+	private int idrole;
+	private String roleName;
+	public int getIdrole() {
+		return idrole;
 	}
-	public void setIDRole(int iDRole) {
-		IDRole = iDRole;
+	public void setIdrole(int idrole) {
+		this.idrole = idrole;
 	}
 	public String getRoleName() {
-		return RoleName;
+		return roleName;
 	}
 	public void setRoleName(String roleName) {
-		RoleName = roleName;
+		this.roleName = roleName;
 	}
+	
+	
 }

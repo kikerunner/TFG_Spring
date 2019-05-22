@@ -1,14 +1,17 @@
 package es.salesianos.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Passenger {
 	private int idPassenger;
-	private Nationality Nationality;
-	private String Name;
-	private String Surname;
-	private String Email;
-	private int AccumulatedPoints;
-	private Country Country;
-	private Role Role;
+	private Nationality nationality;
+	private String name;
+	private String surname;
+	private String email;
+	private int accumulatedPoints;
+	private Country country;
+	private Role role;
 	
 	public int getIdPassenger() {
 		return idPassenger;
@@ -17,52 +20,45 @@ public class Passenger {
 		this.idPassenger = idPassenger;
 	}
 	public Nationality getNationality() {
-		return Nationality;
+		return nationality;
 	}
 	public void setNationality(Nationality nationality) {
-		Nationality = nationality;
+		this.nationality = nationality;
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	public String getSurname() {
-		return Surname;
+		return surname;
 	}
 	public void setSurname(String surname) {
-		Surname = surname;
+		this.surname = surname;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public int getAccumulatedPoints() {
-		return AccumulatedPoints;
+		return accumulatedPoints;
 	}
 	public void setAccumulatedPoints(int accumulatedPoints) {
-		AccumulatedPoints = accumulatedPoints;
+		this.accumulatedPoints = accumulatedPoints;
 	}
 	public Country getCountry() {
-		return Country;
+		return country;
 	}
 	public void setCountry(Country country) {
-		Country = country;
+		this.country = country;
 	}
 	public Role getRole() {
-		return Role;
+		return role;
 	}
 	public void setRole(Role role) {
-		Role = role;
+		this.role = role;
 	}
-	public String getPassword() {
-		return Password;
-	}
-	public void setPassword(String password) {
-		Password = password;
-	}
-	private String Password;
 }

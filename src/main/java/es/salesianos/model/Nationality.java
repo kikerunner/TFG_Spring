@@ -1,20 +1,21 @@
 package es.salesianos.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Nationality {
-	private int IDNationality;
-	private String Nationality;
-	
-	public int getIDNationality() {
-		return IDNationality;
+	private int idnationality;
+	private String nationality;
+	public int getIdnationality() {
+		return idnationality;
 	}
-	public void setIDNationality(int iDNationality) {
-		IDNationality = iDNationality;
+	public void setIdnationality(int idnationality) {
+		this.idnationality = idnationality;
 	}
 	public String getNationality() {
-		return Nationality;
+		return nationality;
 	}
 	public void setNationality(String nationality) {
-		Nationality = nationality;
+		this.nationality = nationality;
 	}
-	
 }

@@ -3,36 +3,33 @@ package es.salesianos.model;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Flight {
-	private int IDFlight;
-	private String FlgihtName;
+	private int idflight;
+	private String flgihtName;
 	private Airplane airplane;
-	private int Distance;
-	private Airport AirportOrigin;
-	private Airport AirportDestiny;
-	private Date BeginDate;
-	private Date EndDate;
-	private FoodAndDrink Foodanddrink;
-	private CabrinCrewFlight Cabincrewflight;
-	private List<Reservation> Reservations;
+	private int distance;
+	private Airport airportOrigin;
+	private Airport airportDestiny;
+	private Date beginDate;
+	private Date endDate;
+	private FoodAndDrink foodanddrink;
+	private CabrinCrewFlight cabincrewflight;
+	private List<Reservation> reservations;
 	
-	public List<Reservation> getReservations() {
-		return Reservations;
+	public int getIdflight() {
+		return idflight;
 	}
-	public void setReservations(List<Reservation> reservations) {
-		Reservations = reservations;
-	}
-	public int getIDFlight() {
-		return IDFlight;
-	}
-	public void setIDFlight(int iDFlight) {
-		IDFlight = iDFlight;
+	public void setIdflight(int idflight) {
+		this.idflight = idflight;
 	}
 	public String getFlgihtName() {
-		return FlgihtName;
+		return flgihtName;
 	}
 	public void setFlgihtName(String flgihtName) {
-		FlgihtName = flgihtName;
+		this.flgihtName = flgihtName;
 	}
 	public Airplane getAirplane() {
 		return airplane;
@@ -41,50 +38,51 @@ public class Flight {
 		this.airplane = airplane;
 	}
 	public int getDistance() {
-		return Distance;
+		return distance;
 	}
 	public void setDistance(int distance) {
-		Distance = distance;
+		this.distance = distance;
 	}
 	public Airport getAirportOrigin() {
-		return AirportOrigin;
+		return airportOrigin;
 	}
 	public void setAirportOrigin(Airport airportOrigin) {
-		AirportOrigin = airportOrigin;
+		this.airportOrigin = airportOrigin;
 	}
 	public Airport getAirportDestiny() {
-		return AirportDestiny;
+		return airportDestiny;
 	}
 	public void setAirportDestiny(Airport airportDestiny) {
-		AirportDestiny = airportDestiny;
+		this.airportDestiny = airportDestiny;
 	}
 	public Date getBeginDate() {
-		return BeginDate;
+		return beginDate;
 	}
 	public void setBeginDate(Date beginDate) {
-		BeginDate = beginDate;
+		this.beginDate = beginDate;
 	}
 	public Date getEndDate() {
-		return EndDate;
+		return endDate;
 	}
 	public void setEndDate(Date endDate) {
-		EndDate = endDate;
+		this.endDate = endDate;
 	}
 	public FoodAndDrink getFoodanddrink() {
-		return Foodanddrink;
+		return foodanddrink;
 	}
 	public void setFoodanddrink(FoodAndDrink foodanddrink) {
-		Foodanddrink = foodanddrink;
+		this.foodanddrink = foodanddrink;
 	}
 	public CabrinCrewFlight getCabincrewflight() {
-		return Cabincrewflight;
+		return cabincrewflight;
 	}
 	public void setCabincrewflight(CabrinCrewFlight cabincrewflight) {
-		Cabincrewflight = cabincrewflight;
+		this.cabincrewflight = cabincrewflight;
 	}
-	
-	
-	
-	
-	
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
+	}
 }

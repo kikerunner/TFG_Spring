@@ -2,45 +2,19 @@ package es.salesianos.model;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class AirplaneBrandName {
-	private int IDAirplaneBrandName;
+	private int idairplaneBrandName;
 	private String airplaneBrandName;
-	private int FlightHours;
-	private int SeatsNumber;
-	private int FuelQuantity;
-	private int WorkersNumber;
-	private List<AirplaneModel> AirplaneModel;
+	private List<AirplaneModel> models;
 	
-	public int getFlightHours() {
-		return FlightHours;
+	public int getIdairplaneBrandName() {
+		return idairplaneBrandName;
 	}
-	public void setFlightHours(int flightHours) {
-		FlightHours = flightHours;
-	}
-	public int getSeatsNumber() {
-		return SeatsNumber;
-	}
-	public void setSeatsNumber(int seatsNumber) {
-		SeatsNumber = seatsNumber;
-	}
-	public int getFuelQuantity() {
-		return FuelQuantity;
-	}
-	public void setFuelQuantity(int fuelQuantity) {
-		FuelQuantity = fuelQuantity;
-	}
-	public int getWorkersNumber() {
-		return WorkersNumber;
-	}
-	public void setWorkersNumber(int workersNumber) {
-		WorkersNumber = workersNumber;
-	}
-	
-	public int getIDAirplaneBrandName() {
-		return IDAirplaneBrandName;
-	}
-	public void setIDAirplaneBrandName(int iDAirplaneBrandName) {
-		IDAirplaneBrandName = iDAirplaneBrandName;
+	public void setIdairplaneBrandName(int idairplaneBrandName) {
+		this.idairplaneBrandName = idairplaneBrandName;
 	}
 	public String getAirplaneBrandName() {
 		return airplaneBrandName;
@@ -48,10 +22,10 @@ public class AirplaneBrandName {
 	public void setAirplaneBrandName(String airplaneBrandName) {
 		this.airplaneBrandName = airplaneBrandName;
 	}
-	public List<AirplaneModel> getAirplaneModel() {
-		return AirplaneModel;
+	public List<AirplaneModel> getModels() {
+		return models;
 	}
-	public void setAirplaneModel(List<AirplaneModel> airplaneModel) {
-		AirplaneModel = airplaneModel;
+	public void setModels(List<AirplaneModel> models) {
+		this.models = models;
 	}
 }

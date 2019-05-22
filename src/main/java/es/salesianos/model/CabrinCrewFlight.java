@@ -1,75 +1,78 @@
 package es.salesianos.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CabrinCrewFlight {
-	private int IDCabinCrewFlight;
-	private Flight Flight;
-	private Worker Pilot;
-	private Worker CoPilot;
-	private Worker FlightAttendant1;
-	private Worker FlightAttendant2;
-	private Worker FlightAttendant3;
-	private Worker FlightAttendant4;
+	private int idcabinCrewFlight;
+	private Flight flight;
+	private Worker pilot;
+	private Worker coPilot;
+	private Worker flightAttendant1;
+	private Worker flightAttendant2;
+	private Worker flightAttendant3;
+	private Worker flightAttendant4;
+	private Worker flightAttendant5;
+	private Worker flightAttendant6;
 	
-	public int getIDCabinCrewFlight() {
-		return IDCabinCrewFlight;
+	public int getIdcabinCrewFlight() {
+		return idcabinCrewFlight;
 	}
-	public void setIDCabinCrewFlight(int iDCabinCrewFlight) {
-		IDCabinCrewFlight = iDCabinCrewFlight;
+	public void setIdcabinCrewFlight(int idcabinCrewFlight) {
+		this.idcabinCrewFlight = idcabinCrewFlight;
 	}
 	public Flight getFlight() {
-		return Flight;
+		return flight;
 	}
 	public void setFlight(Flight flight) {
-		Flight = flight;
+		this.flight = flight;
 	}
 	public Worker getPilot() {
-		return Pilot;
+		return pilot;
 	}
 	public void setPilot(Worker pilot) {
-		Pilot = pilot;
+		this.pilot = pilot;
 	}
 	public Worker getCoPilot() {
-		return CoPilot;
+		return coPilot;
 	}
 	public void setCoPilot(Worker coPilot) {
-		CoPilot = coPilot;
+		this.coPilot = coPilot;
 	}
 	public Worker getFlightAttendant1() {
-		return FlightAttendant1;
+		return flightAttendant1;
 	}
 	public void setFlightAttendant1(Worker flightAttendant1) {
-		FlightAttendant1 = flightAttendant1;
+		this.flightAttendant1 = flightAttendant1;
 	}
 	public Worker getFlightAttendant2() {
-		return FlightAttendant2;
+		return flightAttendant2;
 	}
 	public void setFlightAttendant2(Worker flightAttendant2) {
-		FlightAttendant2 = flightAttendant2;
+		this.flightAttendant2 = flightAttendant2;
 	}
 	public Worker getFlightAttendant3() {
-		return FlightAttendant3;
+		return flightAttendant3;
 	}
 	public void setFlightAttendant3(Worker flightAttendant3) {
-		FlightAttendant3 = flightAttendant3;
+		this.flightAttendant3 = flightAttendant3;
 	}
 	public Worker getFlightAttendant4() {
-		return FlightAttendant4;
+		return flightAttendant4;
 	}
 	public void setFlightAttendant4(Worker flightAttendant4) {
-		FlightAttendant4 = flightAttendant4;
+		this.flightAttendant4 = flightAttendant4;
 	}
 	public Worker getFlightAttendant5() {
-		return FlightAttendant5;
+		return flightAttendant5;
 	}
 	public void setFlightAttendant5(Worker flightAttendant5) {
-		FlightAttendant5 = flightAttendant5;
+		this.flightAttendant5 = flightAttendant5;
 	}
 	public Worker getFlightAttendant6() {
-		return FlightAttendant6;
+		return flightAttendant6;
 	}
 	public void setFlightAttendant6(Worker flightAttendant6) {
-		FlightAttendant6 = flightAttendant6;
+		this.flightAttendant6 = flightAttendant6;
 	}
-	private Worker FlightAttendant5;
-	private Worker FlightAttendant6;
 }

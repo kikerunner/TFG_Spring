@@ -11,13 +11,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert New Actor</title>
+<title>Insert New Airplane</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
 <body>
 <div class="container">
 	<form:form action="/addAirplane" method="post" modelAttribute="airplane">
 		<span>Airplane Name:</span><form:input type="text" name="AirplaneName" path="AirplaneName" /> 
+		<span>Model:</span>
+		<form:select path="model">
+				<form:option value="1">test</form:option>
+				<c:forEach var="modelo" items="${AirplaneBrandNameList}">
+					<form:option value="${modelo.getAirplaneBrandName()}">${modelo.getAirplaneBrandName()}</form:option>
+				</c:forEach>
+		</form:select>
+		
 		<input type="submit" class="btn btn-primary" >
 	</form:form>
 </div>

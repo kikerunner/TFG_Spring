@@ -1,23 +1,26 @@
 package es.salesianos.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Airport {
-	private int IDAirport;
-	private String AirportName;
+	private int idairport;
+	private String airportName;
 	private City city;
-	private String IATA;
-	private String ICAO;
+	private String iata;
+	private String icao;
 	
-	public int getIDAirport() {
-		return IDAirport;
+	public int getIdairport() {
+		return idairport;
 	}
-	public void setIDAirport(int iDAirport) {
-		IDAirport = iDAirport;
+	public void setIdairport(int idairport) {
+		this.idairport = idairport;
 	}
 	public String getAirportName() {
-		return AirportName;
+		return airportName;
 	}
 	public void setAirportName(String airportName) {
-		AirportName = airportName;
+		this.airportName = airportName;
 	}
 	public City getCity() {
 		return city;
@@ -25,16 +28,16 @@ public class Airport {
 	public void setCity(City city) {
 		this.city = city;
 	}
-	public String getIATA() {
-		return IATA;
+	public String getIata() {
+		return iata;
 	}
-	public void setIATA(String iATA) {
-		IATA = iATA;
+	public void setIata(String iata) {
+		this.iata = iata;
 	}
-	public String getICAO() {
-		return ICAO;
+	public String getIcao() {
+		return icao;
 	}
-	public void setICAO(String iCAO) {
-		ICAO = iCAO;
+	public void setIcao(String icao) {
+		this.icao = icao;
 	}
 }

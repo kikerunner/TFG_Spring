@@ -2,90 +2,92 @@ package es.salesianos.model;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Reservation {
-	private int IDReservation;
-	private Passenger Passenger1;
-	private Passenger Passenger2;
-	private Passenger Passenger3;
-	private Passenger Passenger4;
-	private Passenger Passenger5;
-	private Passenger Passenger6;
-	private int SeatsNumber;
-	private Flight Flight;
-	private int LuggaggeNumber;
-	private int Price;
-	private Date ReservationTime;
-	
-	public int getIDReservation() {
-		return IDReservation;
+	private int idreservation;
+	private Passenger passenger1;
+	private Passenger passenger2;
+	private Passenger passenger3;
+	private Passenger passenger4;
+	private Passenger passenger5;
+	private Passenger passenger6;
+	private int seatsNumber;
+	private Flight flight;
+	private int luggaggeNumber;
+	private int price;
+	private Date reservationTime;
+	public int getIdreservation() {
+		return idreservation;
 	}
-	public void setIDReservation(int iDReservation) {
-		IDReservation = iDReservation;
+	public void setIdreservation(int idreservation) {
+		this.idreservation = idreservation;
 	}
 	public Passenger getPassenger1() {
-		return Passenger1;
+		return passenger1;
 	}
 	public void setPassenger1(Passenger passenger1) {
-		Passenger1 = passenger1;
+		this.passenger1 = passenger1;
 	}
 	public Passenger getPassenger2() {
-		return Passenger2;
+		return passenger2;
 	}
 	public void setPassenger2(Passenger passenger2) {
-		Passenger2 = passenger2;
+		this.passenger2 = passenger2;
 	}
 	public Passenger getPassenger3() {
-		return Passenger3;
+		return passenger3;
 	}
 	public void setPassenger3(Passenger passenger3) {
-		Passenger3 = passenger3;
+		this.passenger3 = passenger3;
 	}
 	public Passenger getPassenger4() {
-		return Passenger4;
+		return passenger4;
 	}
 	public void setPassenger4(Passenger passenger4) {
-		Passenger4 = passenger4;
+		this.passenger4 = passenger4;
 	}
 	public Passenger getPassenger5() {
-		return Passenger5;
+		return passenger5;
 	}
 	public void setPassenger5(Passenger passenger5) {
-		Passenger5 = passenger5;
+		this.passenger5 = passenger5;
 	}
 	public Passenger getPassenger6() {
-		return Passenger6;
+		return passenger6;
 	}
 	public void setPassenger6(Passenger passenger6) {
-		Passenger6 = passenger6;
+		this.passenger6 = passenger6;
 	}
 	public int getSeatsNumber() {
-		return SeatsNumber;
+		return seatsNumber;
 	}
 	public void setSeatsNumber(int seatsNumber) {
-		SeatsNumber = seatsNumber;
+		this.seatsNumber = seatsNumber;
 	}
 	public Flight getFlight() {
-		return Flight;
+		return flight;
 	}
 	public void setFlight(Flight flight) {
-		Flight = flight;
+		this.flight = flight;
 	}
 	public int getLuggaggeNumber() {
-		return LuggaggeNumber;
+		return luggaggeNumber;
 	}
 	public void setLuggaggeNumber(int luggaggeNumber) {
-		LuggaggeNumber = luggaggeNumber;
+		this.luggaggeNumber = luggaggeNumber;
 	}
 	public int getPrice() {
-		return Price;
+		return price;
 	}
 	public void setPrice(int price) {
-		Price = price;
+		this.price = price;
 	}
 	public Date getReservationTime() {
-		return ReservationTime;
+		return reservationTime;
 	}
 	public void setReservationTime(Date reservationTime) {
-		ReservationTime = reservationTime;
+		this.reservationTime = reservationTime;
 	}
 }

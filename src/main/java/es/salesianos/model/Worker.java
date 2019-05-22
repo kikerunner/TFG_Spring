@@ -1,70 +1,72 @@
 package es.salesianos.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Worker {
-	private int IDWorker;
-	private String Passport;
-	private String Name;
-	private String Surname;
-	private String Photo;
-	private String Addres;
-	private City City;
-	private Nationality Nationality;
-	private String Password;
+	private int idworker;
+	private String passport;
+	private String name;
+	private String surname;
+	private String photo;
+	private String addres;
+	private City city;
+	private Nationality nationality;
+	private String password;
 	private Role role;
-	
-	public int getIDWorker() {
-		return IDWorker;
+	public int getIdworker() {
+		return idworker;
 	}
-	public void setIDWorker(int iDWorker) {
-		IDWorker = iDWorker;
+	public void setIdworker(int idworker) {
+		this.idworker = idworker;
 	}
 	public String getPassport() {
-		return Passport;
+		return passport;
 	}
 	public void setPassport(String passport) {
-		Passport = passport;
+		this.passport = passport;
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	public String getSurname() {
-		return Surname;
+		return surname;
 	}
 	public void setSurname(String surname) {
-		Surname = surname;
+		this.surname = surname;
 	}
 	public String getPhoto() {
-		return Photo;
+		return photo;
 	}
 	public void setPhoto(String photo) {
-		Photo = photo;
+		this.photo = photo;
 	}
 	public String getAddres() {
-		return Addres;
+		return addres;
 	}
 	public void setAddres(String addres) {
-		Addres = addres;
+		this.addres = addres;
 	}
 	public City getCity() {
-		return City;
+		return city;
 	}
 	public void setCity(City city) {
-		City = city;
+		this.city = city;
 	}
 	public Nationality getNationality() {
-		return Nationality;
+		return nationality;
 	}
 	public void setNationality(Nationality nationality) {
-		Nationality = nationality;
+		this.nationality = nationality;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 	public Role getRole() {
 		return role;

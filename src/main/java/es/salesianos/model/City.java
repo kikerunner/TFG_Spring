@@ -1,21 +1,25 @@
 package es.salesianos.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class City {
-	private int IdCity;
-	private String CityName;
+	private int idCity;
+	private String cityName;
 	private Country country;
 	
+	
 	public int getIdCity() {
-		return IdCity;
+		return idCity;
 	}
 	public void setIdCity(int idCity) {
-		IdCity = idCity;
+		this.idCity = idCity;
 	}
 	public String getCityName() {
-		return CityName;
+		return cityName;
 	}
 	public void setCityName(String cityName) {
-		CityName = cityName;
+		this.cityName = cityName;
 	}
 	public Country getCountry() {
 		return country;

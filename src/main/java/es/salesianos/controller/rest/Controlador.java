@@ -1,6 +1,7 @@
 package es.salesianos.controller.rest;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.salesianos.model.Airplane;
+import es.salesianos.model.AirplaneBrandName;
+import es.salesianos.service.AirplaneBrandNameService;
 import es.salesianos.service.AirplaneService;
 
 @Controller
@@ -25,13 +28,25 @@ public class Controlador {
 	List<Airplane> listAllAirplanes;
 	
 	@Autowired 
+	List<AirplaneBrandName> airplaneBrandNameList;
+	
+	@Autowired 
 	@Qualifier("airplaneservice")
 	AirplaneService airplaneservice;
+	
+	@Autowired 
+	@Qualifier("airplaneBrandNameService")
+	AirplaneBrandNameService airplaneBrandNameService;
 
 	@GetMapping(path="/addAirplane")
 	public ModelAndView getAddAirplanePage() {
+		airplaneBrandNameList = airplaneBrandNameService.listAllAirplanesBrandName();
 		ModelAndView model = new ModelAndView("addAirplane");
+		for (int i = 0; i < airplaneBrandNameList.size(); i++) {
+			System.out.println("En controlador airplaneBrandNameList:" + airplaneBrandNameList.get(i).getAirplaneBrandName());
+		}
 		model.addObject("airplane",new Airplane());
+		model.addObject("AirplaneBrandNameList", airplaneBrandNameList);
 		return model;
 	}
 	
