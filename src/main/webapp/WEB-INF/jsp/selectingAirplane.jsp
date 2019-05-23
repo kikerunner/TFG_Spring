@@ -15,10 +15,8 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
 <body>
-<div class="form-group col-md-offset-3">
+<div class="form-group">
 	<form:form action="/addAirplane" method="post" modelAttribute="airplane"  class="form-inlin justify-content-center">
-		<label>Airplane Name:</label>
-		<form:input type="text" name="AirplaneName" path="AirplaneName" class="form-control" width="250px"/> 
 		<label>Model:</label>
 		<form:select class="form-control" path="model" >
 				<form:option value="0">Select Brand</form:option>

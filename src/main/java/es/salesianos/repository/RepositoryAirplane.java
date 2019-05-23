@@ -66,7 +66,6 @@ public class RepositoryAirplane {
 				Airplane airplaneInDatabase = new Airplane();
 				airplaneInDatabase.setIdAirplane(resultSet.getInt(1));
 				airplaneInDatabase.setAirplaneName(resultSet.getString(2));
-				System.out.println(airplaneInDatabase.getAirplaneName());
 				listAirplanes.add(airplaneInDatabase);
 			}
 			
