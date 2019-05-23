@@ -68,7 +68,6 @@ public class RepositoryAirplaneBrandName {
 				airplaneBrandNameInDatabase.setIdairplaneBrandName(resultSet.getInt(1));
 				airplaneBrandNameInDatabase.setAirplaneBrandName(resultSet.getString(2));
 				listAirplanesBrandName.add(airplaneBrandNameInDatabase);
-				airplaneBrandNameInDatabase.getAirplaneBrandName();
 			}
 			
 		} catch (SQLException e) {

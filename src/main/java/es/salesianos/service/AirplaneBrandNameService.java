@@ -17,8 +17,14 @@ public class AirplaneBrandNameService {
 	@Qualifier("repositoryairplaneBrandName")
 	private RepositoryAirplaneBrandName repoAirplaneBrandName;
 	
-	
-	
+	public RepositoryAirplaneBrandName getRepoAirplaneBrandName() {
+		return repoAirplaneBrandName;
+	}
+
+	public void setRepoAirplaneBrandName(RepositoryAirplaneBrandName repoAirplaneBrandName) {
+		this.repoAirplaneBrandName = repoAirplaneBrandName;
+	}
+
 	public List<AirplaneBrandName> listAllAirplanesBrandName() {
 		return repoAirplaneBrandName.sellectAllAirplanesBrandName();
 	}

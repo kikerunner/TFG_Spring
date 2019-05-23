@@ -42,9 +42,6 @@ public class Controlador {
 	public ModelAndView getAddAirplanePage() {
 		airplaneBrandNameList = airplaneBrandNameService.listAllAirplanesBrandName();
 		ModelAndView model = new ModelAndView("addAirplane");
-		for (int i = 0; i < airplaneBrandNameList.size(); i++) {
-			System.out.println("En controlador airplaneBrandNameList:" + airplaneBrandNameList.get(i).getAirplaneBrandName());
-		}
 		model.addObject("airplane",new Airplane());
 		model.addObject("AirplaneBrandNameList", airplaneBrandNameList);
 		return model;
