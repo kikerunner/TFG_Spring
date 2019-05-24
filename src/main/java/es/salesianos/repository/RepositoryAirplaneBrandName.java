@@ -80,4 +80,28 @@ public class RepositoryAirplaneBrandName {
 		return listAirplanesBrandName;
 	}
 	
+	public List<AirplaneBrandName> sellectAirplanesModelByCompany() {
+		List<AirplaneBrandName> listAirplanesBrandName = new ArrayList<AirplaneBrandName>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT * FROM AirplanesBrandName");
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				AirplaneBrandName airplaneBrandNameInDatabase = new AirplaneBrandName();
+				airplaneBrandNameInDatabase.setIdairplaneBrandName(resultSet.getInt(1));
+				airplaneBrandNameInDatabase.setAirplaneBrandName(resultSet.getString(2));
+				listAirplanesBrandName.add(airplaneBrandNameInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return listAirplanesBrandName;
+	}
 }

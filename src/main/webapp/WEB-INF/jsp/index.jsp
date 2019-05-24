@@ -18,6 +18,9 @@
 	<div>
 		<a href="/LoadAirplanesList">Airplanes List</a>
 	</div>
+	<div>
+		<a href="/selectingAirplane">Eligiendo airplane</a>
+	</div>
 </div>
 <script src="js/bootstrap.min.js"></script>  
 </body>

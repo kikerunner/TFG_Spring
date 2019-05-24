@@ -15,17 +15,22 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
 <body>
-<div class="form-group">
-	<form:form action="/addAirplane" method="post" modelAttribute="airplane"  class="form-inlin justify-content-center">
-		<label>Model:</label>
-		<form:select class="form-control" path="model" >
-				<form:option value="0">Select Brand</form:option>
-				<form:options items="${AirplaneBrandNameList}" itemValue="idairplaneBrandName" itemLabel="airplaneBrandName" />
-		</form:select>
-		
-		<input type="submit" class="btn btn-primary" >
-	</form:form>
-</div>
+<table border="1" class="table">
+	<thead>
+		<tr>
+			<td>Airplane Company</td>
+			<td>Choose Airplane Brand</td>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach var="item" items="${AirplaneBrandNameList}">
+			<tr>
+				<td><c:out value="${item.getAirplaneBrandName()}"/> </td>
+				<td><a href="/addAirplane?cod=${item.getIdairplaneBrandName()}">Asociate</a></td>
+	    	</tr>
+		</c:forEach>
+	</tbody>
+</table>
 	<script src="js/bootstrap.min.js"></script> 
 </body>
 </html>

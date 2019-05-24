@@ -37,21 +37,6 @@ public class Controlador {
 	@Autowired 
 	@Qualifier("airplaneBrandNameService")
 	AirplaneBrandNameService airplaneBrandNameService;
-
-	@GetMapping(path="/addAirplane")
-	public ModelAndView getAddAirplanePage() {
-		airplaneBrandNameList = airplaneBrandNameService.listAllAirplanesBrandName();
-		ModelAndView model = new ModelAndView("addAirplane");
-		model.addObject("airplane",new Airplane());
-		model.addObject("AirplaneBrandNameList", airplaneBrandNameList);
-		return model;
-	}
-	
-	@PostMapping(path="/addAirplane")
-	public String saveAirplane(Airplane airplane)  {
-		airplaneservice.addAirplane(airplane);
-		return "index";
-	}
 	
 	@GetMapping(path = "/LoadAirplanesList")
 	public ModelAndView loadAirplaneList() {
@@ -61,6 +46,39 @@ public class Controlador {
 		}
 		ModelAndView model = new ModelAndView("ListAirplanes");
 		model.addObject("ListAirplanes", listAllAirplanes);
+		return model;
+	}
+	@PostMapping(path="/addAirplane")
+	public String saveAirplane(Airplane airplane)  {
+		airplaneservice.addAirplane(airplane);
+		return "index";
+	}
+	/*
+	 * @GetMapping(path = "/recoveryFilm")
+		public ModelAndView asociateFilmWithActor(@RequestParam int cod) {
+			this.listAllActors = serviceactores.listAllActors();
+			System.out.println(listAllActors);
+			ModelAndView model = new ModelAndView("selectActor");
+			model.addObject("codPelicula", cod);
+			model.addObject("listAllActores", listAllActors);
+			return model;
+		}
+	 */
+	@GetMapping(path="/addAirplane")
+	public ModelAndView getAddAirplanePage(@RequestParam int cod) {
+		System.out.println(cod);
+		airplaneBrandNameList = airplaneBrandNameService.listAllAirplanesBrandName();
+		ModelAndView model = new ModelAndView("addAirplane");
+		model.addObject("airplane",new Airplane());
+		model.addObject("AirplaneBrandNameList", airplaneBrandNameList);
+		return model;
+	}
+	@GetMapping(path = "/selectingAirplane")
+	public ModelAndView asociatepage() {
+		airplaneBrandNameList = airplaneBrandNameService.listAllAirplanesBrandName();
+		System.out.println(airplaneBrandNameList);
+		ModelAndView model = new ModelAndView("selectingAirplane");
+		model.addObject("AirplaneBrandNameList", airplaneBrandNameList);
 		return model;
 	}
 }
