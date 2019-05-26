@@ -13,10 +13,11 @@ import es.salesianos.connection.ConnectionSQL;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Airplane;
 import es.salesianos.model.AirplaneBrandName;
+import es.salesianos.model.AirplaneModel;
 
 
-@Repository("repositoryairplaneBrandName")
-public class RepositoryAirplaneBrandName {
+@Repository("repositoryairplaneModel")
+public class RepositoryAirplaneModel {
 	
 	private static final String jdbcUrl = "jdbc:mysql://localhost:3306/TFG";
 	ConnectionManager manager = new ConnectionSQL();
@@ -38,7 +39,7 @@ public class RepositoryAirplaneBrandName {
 			throw new RuntimeException(e);
 		}
 	}
-
+/*
 	public void insertAirplane(Airplane airplane) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement prepareStatement = null;
@@ -53,21 +54,21 @@ public class RepositoryAirplaneBrandName {
 			close(prepareStatement);
 		}
 		manager.close(conn);
-	}
+	}*/
 	
-	public List<AirplaneBrandName> sellectAllAirplanesBrandName() {
-		List<AirplaneBrandName> listAirplanesBrandName = new ArrayList<AirplaneBrandName>();
+	public List<AirplaneModel> sellectAllAirplanesModel() {
+		List<AirplaneModel> listAirplanesModels = new ArrayList<AirplaneModel>();
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement prepareStatement = null;
 		ResultSet resultSet = null;
 		try {
-			prepareStatement = conn.prepareStatement("SELECT * FROM AirplanesBrandName");
+			prepareStatement = conn.prepareStatement("SELECT * FROM AirplanesModels");
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				AirplaneBrandName airplaneBrandNameInDatabase = new AirplaneBrandName();
-				airplaneBrandNameInDatabase.setIdairplaneBrandName(resultSet.getInt(1));
-				airplaneBrandNameInDatabase.setAirplaneBrandName(resultSet.getString(2));
-				listAirplanesBrandName.add(airplaneBrandNameInDatabase);
+				AirplaneModel airplaneModelInDatabase = new AirplaneModel();
+				airplaneModelInDatabase.setIdAirplaneModel(resultSet.getInt(1));
+				airplaneModelInDatabase.setAirplaneModel(resultSet.getString(2));
+				listAirplanesModels.add(airplaneModelInDatabase);
 			}
 			
 		} catch (SQLException e) {
@@ -77,22 +78,23 @@ public class RepositoryAirplaneBrandName {
 			close(prepareStatement);
 		}
 		manager.close(conn);
-		return listAirplanesBrandName;
+		return listAirplanesModels;
 	}
 	
-	public List<AirplaneBrandName> sellectAirplanesModelByCompany() {
-		List<AirplaneBrandName> listAirplanesBrandName = new ArrayList<AirplaneBrandName>();
+	public List<AirplaneModel> sellectAirplanesModelByCompany(int cod) {
+		List<AirplaneModel> listAirplanesModel = new ArrayList<AirplaneModel>();
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement prepareStatement = null;
 		ResultSet resultSet = null;
 		try {
-			prepareStatement = conn.prepareStatement("SELECT * FROM AirplanesModels WHERE AirplanesBrand_id = ");
+			prepareStatement = conn.prepareStatement("SELECT * FROM AirplanesModels WHERE AirplanesBrand_id = (?)");
+			prepareStatement.setInt(1, cod);
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				AirplaneBrandName airplaneBrandNameInDatabase = new AirplaneBrandName();
-				airplaneBrandNameInDatabase.setIdairplaneBrandName(resultSet.getInt(1));
-				airplaneBrandNameInDatabase.setAirplaneBrandName(resultSet.getString(2));
-				listAirplanesBrandName.add(airplaneBrandNameInDatabase);
+				AirplaneModel airplaneModelInDatabase = new AirplaneModel();
+				airplaneModelInDatabase.setIdAirplaneModel(resultSet.getInt(1));
+				airplaneModelInDatabase.setAirplaneModel(resultSet.getString(2));
+				listAirplanesModel.add(airplaneModelInDatabase);
 			}
 			
 		} catch (SQLException e) {
@@ -102,6 +104,6 @@ public class RepositoryAirplaneBrandName {
 			close(prepareStatement);
 		}
 		manager.close(conn);
-		return listAirplanesBrandName;
+		return listAirplanesModel;
 	}
 }

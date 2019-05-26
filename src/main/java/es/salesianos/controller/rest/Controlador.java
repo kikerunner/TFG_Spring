@@ -18,7 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import es.salesianos.model.Airplane;
 import es.salesianos.model.AirplaneBrandName;
+import es.salesianos.model.AirplaneModel;
 import es.salesianos.service.AirplaneBrandNameService;
+import es.salesianos.service.AirplaneModelService;
 import es.salesianos.service.AirplaneService;
 
 @Controller
@@ -29,6 +31,9 @@ public class Controlador {
 	
 	@Autowired 
 	List<AirplaneBrandName> airplaneBrandNameList;
+
+	@Autowired 
+	List<AirplaneModel> airplaneModelList;
 	
 	@Autowired 
 	@Qualifier("airplaneservice")
@@ -37,6 +42,10 @@ public class Controlador {
 	@Autowired 
 	@Qualifier("airplaneBrandNameService")
 	AirplaneBrandNameService airplaneBrandNameService;
+	
+	@Autowired 
+	@Qualifier("airplaneModelService")
+	AirplaneModelService airplaneModelService;
 	
 	@GetMapping(path = "/LoadAirplanesList")
 	public ModelAndView loadAirplaneList() {
@@ -67,10 +76,10 @@ public class Controlador {
 	@GetMapping(path="/addAirplane")
 	public ModelAndView getAddAirplanePage(@RequestParam int cod) {
 		System.out.println(cod);
-		airplaneBrandNameList = airplaneBrandNameService.listAllAirplanesBrandName();
+		airplaneModelList = airplaneModelService.listAllAirplanesModelByBrandName(cod);
 		ModelAndView model = new ModelAndView("addAirplane");
 		model.addObject("airplane",new Airplane());
-		model.addObject("AirplaneBrandNameList", airplaneBrandNameList);
+		model.addObject("AirplaneModelList", airplaneModelList);
 		return model;
 	}
 	@GetMapping(path = "/selectingAirplane")

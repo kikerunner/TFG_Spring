@@ -7,7 +7,15 @@ public class Airplane {
 	private int idAirplane;
 	private String airplaneName;
 	private AirplaneModel model;
-	private int flightHours;
+	private Float flightHours;
+	private int idAirplaneModel;
+	
+	public int getIdAirplaneModel() {
+		return idAirplaneModel;
+	}
+	public void setIdAirplaneModel(int idAirplaneModel) {
+		this.idAirplaneModel = idAirplaneModel;
+	}
 	private int seatsNumber;
 	private int fuelQuantity;
 	private int workersNumber;
@@ -30,10 +38,10 @@ public class Airplane {
 	public void setModel(AirplaneModel model) {
 		this.model = model;
 	}
-	public int getFlightHours() {
+	public Float getFlightHours() {
 		return flightHours;
 	}
-	public void setFlightHours(int flightHours) {
+	public void setFlightHours(Float flightHours) {
 		this.flightHours = flightHours;
 	}
 	public int getSeatsNumber() {

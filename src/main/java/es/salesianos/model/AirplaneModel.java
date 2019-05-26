@@ -4,21 +4,22 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AirplaneModel {
-	private int IDAirplaneModel;
-	private String AirplaneModel;
+	private int idAirplaneModel;
+	private String airplaneModel;
 	private AirplaneBrandName airplaneBrandName;
 	
-	public int getIDAirplaneModel() {
-		return IDAirplaneModel;
+	
+	public int getIdAirplaneModel() {
+		return idAirplaneModel;
 	}
-	public void setIDAirplaneModel(int iDAirplaneModel) {
-		IDAirplaneModel = iDAirplaneModel;
+	public void setIdAirplaneModel(int idAirplaneModel) {
+		this.idAirplaneModel = idAirplaneModel;
 	}
 	public String getAirplaneModel() {
-		return AirplaneModel;
+		return airplaneModel;
 	}
 	public void setAirplaneModel(String airplaneModel) {
-		AirplaneModel = airplaneModel;
+		this.airplaneModel = airplaneModel;
 	}
 	public AirplaneBrandName getAirplaneBrandName() {
 		return airplaneBrandName;
