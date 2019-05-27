@@ -25,10 +25,14 @@ public class AirplaneService {
 
 	public void addAirplane(Airplane airplane) {
 		repositoryAirplane.insertAirplane(airplane);
+		System.out.println("En service:" + airplane.getFlightHours());
 	}
 	
 	public List<Airplane> listAllAirplanes() {
 		return repositoryAirplane.sellectAllAirplanes();
 	}
 
+	public List<Airplane> listAllAirplanesAndModels() {
+		return repositoryAirplane.sellectAllAirplanesAndModel();
+	}
 }

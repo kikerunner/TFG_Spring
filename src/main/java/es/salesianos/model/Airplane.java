@@ -9,6 +9,9 @@ public class Airplane {
 	private AirplaneModel model;
 	private Float flightHours;
 	private int idAirplaneModel;
+	private int seatsNumber;
+	private int fuelQuantity;
+	private int workersNumber;
 	
 	public int getIdAirplaneModel() {
 		return idAirplaneModel;
@@ -16,10 +19,6 @@ public class Airplane {
 	public void setIdAirplaneModel(int idAirplaneModel) {
 		this.idAirplaneModel = idAirplaneModel;
 	}
-	private int seatsNumber;
-	private int fuelQuantity;
-	private int workersNumber;
-	
 	public int getIdAirplane() {
 		return idAirplane;
 	}

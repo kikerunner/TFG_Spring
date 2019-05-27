@@ -19,13 +19,37 @@
 	<table class="table">
 		<thead>
 			<tr>
+				<th scope="col">Airplane Id</th>
+			
 				<th scope="col">Airplane Name</th>
+			
+				<th scope="col">Flight Hours</th>
+			
+				<th scope="col">Model</th>
+			
+				<th scope="col">Seats Number</th>
+			
+				<th scope="col">Fuel Quantity</th>
+			
+				<th scope="col">Workers Number</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="airplane" items="${ListAirplanes}">
 			<tr>
+				<td><c:out value="${airplane.getIdAirplane()}" /></td>
+			
 				<td><c:out value="${airplane.getAirplaneName()}" /></td>
+			
+				<td><c:out value="${airplane.getFlightHours()}" /></td>
+			
+				<td><c:out value="${airplane.model.getModel().getAirplaneModel()}" /></td>
+			
+				<td><c:out value="${airplane.getSeatsNumber()}" /></td>
+			
+				<td><c:out value="${airplane.getFuelQuantity()}" /></td>
+			
+				<td><c:out value="${airplane.getWorkersNumber()}" /></td>
 			</tr>
 			</c:forEach>
 		</tbody>

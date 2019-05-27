@@ -49,10 +49,7 @@ public class Controlador {
 	
 	@GetMapping(path = "/LoadAirplanesList")
 	public ModelAndView loadAirplaneList() {
-		listAllAirplanes = airplaneservice.listAllAirplanes();
-		for (int i = 0; i < listAllAirplanes.size(); i++) {
-			System.out.println("En controlador:" + listAllAirplanes.get(i).getAirplaneName());
-		}
+		listAllAirplanes = airplaneservice.listAllAirplanesAndModels();
 		ModelAndView model = new ModelAndView("ListAirplanes");
 		model.addObject("ListAirplanes", listAllAirplanes);
 		return model;
@@ -60,19 +57,9 @@ public class Controlador {
 	@PostMapping(path="/addAirplane")
 	public String saveAirplane(Airplane airplane)  {
 		airplaneservice.addAirplane(airplane);
+		System.out.println("en controlador" + airplane.getFlightHours());
 		return "index";
 	}
-	/*
-	 * @GetMapping(path = "/recoveryFilm")
-		public ModelAndView asociateFilmWithActor(@RequestParam int cod) {
-			this.listAllActors = serviceactores.listAllActors();
-			System.out.println(listAllActors);
-			ModelAndView model = new ModelAndView("selectActor");
-			model.addObject("codPelicula", cod);
-			model.addObject("listAllActores", listAllActors);
-			return model;
-		}
-	 */
 	@GetMapping(path="/addAirplane")
 	public ModelAndView getAddAirplanePage(@RequestParam int cod) {
 		System.out.println(cod);

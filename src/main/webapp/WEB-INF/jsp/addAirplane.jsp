@@ -20,12 +20,12 @@
 		<label>Airplane Name:</label>
 		<form:input type="text" name="AirplaneName" path="AirplaneName" class="form-control" width="250px"/> 
 		<label>Model:</label>
-		<form:select class="form-control" path="model" >
+		<form:select class="form-control" path="idAirplaneModel" >
 				<form:option value="0">Select Brand</form:option>
 				<form:options items="${AirplaneModelList}" itemValue="idAirplaneModel" itemLabel="airplaneModel" />
 		</form:select>
 		<label>Flight Hours:</label>
-		<form:input type="number" name="flightHours" path="flightHours" class="form-control" width="250px"/> 
+		<form:input type="float" name="flightHours" path="flightHours" class="form-control" width="250px"/> 
 		<label>Seats Number:</label>
 		<form:input type="number" name="seatsNumber" path="seatsNumber" class="form-control" width="250px"/> 
 		<label>Fuel Quantity:</label>
