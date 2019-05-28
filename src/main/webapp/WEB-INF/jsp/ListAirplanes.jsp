@@ -43,7 +43,7 @@
 			
 				<td><c:out value="${airplane.getFlightHours()}" /></td>
 			
-				<td><c:out value="${airplane.model.getModel().getAirplaneModel()}" /></td>
+				<td><c:out value="${airplane.getModel().getAirplaneModel()}" /></td>
 			
 				<td><c:out value="${airplane.getSeatsNumber()}" /></td>
 			

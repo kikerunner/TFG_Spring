@@ -19,9 +19,11 @@ import org.springframework.web.servlet.ModelAndView;
 import es.salesianos.model.Airplane;
 import es.salesianos.model.AirplaneBrandName;
 import es.salesianos.model.AirplaneModel;
+import es.salesianos.model.Country;
 import es.salesianos.service.AirplaneBrandNameService;
 import es.salesianos.service.AirplaneModelService;
 import es.salesianos.service.AirplaneService;
+import es.salesianos.service.CountryService;
 
 @Controller
 public class Controlador {
@@ -34,6 +36,13 @@ public class Controlador {
 
 	@Autowired 
 	List<AirplaneModel> airplaneModelList;
+	
+	@Autowired 
+	List<Country> countryList;
+	
+	@Autowired 
+	@Qualifier("countryService")
+	CountryService countryService;
 	
 	@Autowired 
 	@Qualifier("airplaneservice")
@@ -75,6 +84,13 @@ public class Controlador {
 		System.out.println(airplaneBrandNameList);
 		ModelAndView model = new ModelAndView("selectingAirplane");
 		model.addObject("AirplaneBrandNameList", airplaneBrandNameList);
+		return model;
+	}
+	@GetMapping(path = "/selectingCountry")
+	public ModelAndView asociateCountry() {
+		countryList = countryService.listAllCountries();
+		ModelAndView model = new ModelAndView("selectingCountry");
+		model.addObject("CountryList", countryList);
 		return model;
 	}
 }
