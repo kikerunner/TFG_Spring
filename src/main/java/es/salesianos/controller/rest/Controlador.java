@@ -21,6 +21,7 @@ import es.salesianos.model.AirplaneBrandName;
 import es.salesianos.model.AirplaneModel;
 import es.salesianos.model.City;
 import es.salesianos.model.Country;
+import es.salesianos.model.FoodAndDrink;
 import es.salesianos.model.Nationality;
 import es.salesianos.model.Role;
 import es.salesianos.model.Worker;
@@ -29,6 +30,7 @@ import es.salesianos.service.AirplaneModelService;
 import es.salesianos.service.AirplaneService;
 import es.salesianos.service.CityService;
 import es.salesianos.service.CountryService;
+import es.salesianos.service.FoodAndDrinkService;
 import es.salesianos.service.NationalityService;
 import es.salesianos.service.RoleService;
 import es.salesianos.service.WorkerService;
@@ -89,6 +91,10 @@ public class Controlador {
 	@Qualifier("roleService")
 	RoleService roleService;
 	
+	@Autowired 
+	@Qualifier("foodAndDrinkService")
+	FoodAndDrinkService foodAndDrinkService;
+	
 	@GetMapping(path = "/LoadAirplanesList")
 	public ModelAndView loadAirplaneList() {
 		listAllAirplanes = airplaneservice.listAllAirplanesAndModels();
@@ -136,6 +142,17 @@ public class Controlador {
 		model.addObject("NationalityList", nationalityList);
 		model.addObject("RoleList", roleList);
 		return model;
+	}
+	@GetMapping(path="/addFoodAndDrink")
+	public ModelAndView getAddFoodAndDrinkPage() {
+		ModelAndView model = new ModelAndView("addFoodAndDrink");
+		model.addObject("foodAndDrink",new FoodAndDrink());
+		return model;
+	}
+	@PostMapping(path="/addFoodAndDrink")
+	public String saveWorker(FoodAndDrink foodAndDrink)  {
+		foodAndDrinkService.addFoodAndDrink(foodAndDrink);
+		return "index";
 	}
 	@PostMapping(path="/addWorker")
 	public String saveWorker(Worker worker)  {

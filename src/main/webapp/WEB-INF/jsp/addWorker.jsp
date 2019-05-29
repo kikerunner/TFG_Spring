@@ -32,12 +32,13 @@
 				<form:option value="0">Select City</form:option>
 				<form:options items="${CityList}" itemValue="idCity" itemLabel="CityName" />
 		</form:select>
+		<label>Nationality:</label>
 		<form:select class="form-control" path="idNationality" >
 				<form:option value="0">Select Nationality</form:option>
 				<form:options items="${NationalityList}" itemValue="idNationality" itemLabel="nationality" />
 		</form:select>
 		<label>Password:</label>
-		<form:input type="text" name="password" path="password" class="form-control" width="250px"/> 
+		<form:input type="password" name="password" path="password" class="form-control" width="250px"/> 
 		<label>Role:</label>
 		<form:select class="form-control" path="idRole" >
 				<form:option value="0">Select Role</form:option>

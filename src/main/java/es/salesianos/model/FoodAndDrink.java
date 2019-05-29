@@ -5,11 +5,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class FoodAndDrink {
 	private int idfoodAndDrink;
+	private String name;
 	private String food;
 	private String dinner;
 	private String extra1;
 	private String extra2;
 	private String extra3;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getIdfoodAndDrink() {
 		return idfoodAndDrink;
 	}

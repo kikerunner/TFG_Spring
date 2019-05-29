@@ -19,6 +19,9 @@
 		<a href="/selectingCountry">Add a Worker</a>
 	</div>
 	<div>
+		<a href="/addFoodAndDrink">Add Food and Drink</a>
+	</div>
+	<div>
 		<a href="/LoadAirplanesList">Airplanes List</a>
 	</div>
 </div>
