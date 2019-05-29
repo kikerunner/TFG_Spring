@@ -4,13 +4,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Nationality {
-	private int idnationality;
+	private int idNationality;
 	private String nationality;
-	public int getIdnationality() {
-		return idnationality;
+	
+	
+	public int getIdNationality() {
+		return idNationality;
 	}
-	public void setIdnationality(int idnationality) {
-		this.idnationality = idnationality;
+	public void setIdNationality(int idNationality) {
+		this.idNationality = idNationality;
 	}
 	public String getNationality() {
 		return nationality;

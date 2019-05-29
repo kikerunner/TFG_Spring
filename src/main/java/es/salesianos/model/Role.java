@@ -4,13 +4,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Role {
-	private int idrole;
+	private int idRole;
 	private String roleName;
-	public int getIdrole() {
-		return idrole;
+	
+	
+	public int getIdRole() {
+		return idRole;
 	}
-	public void setIdrole(int idrole) {
-		this.idrole = idrole;
+	public void setIdRole(int idRole) {
+		this.idRole = idRole;
 	}
 	public String getRoleName() {
 		return roleName;

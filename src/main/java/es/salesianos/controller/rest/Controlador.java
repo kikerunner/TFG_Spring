@@ -19,11 +19,19 @@ import org.springframework.web.servlet.ModelAndView;
 import es.salesianos.model.Airplane;
 import es.salesianos.model.AirplaneBrandName;
 import es.salesianos.model.AirplaneModel;
+import es.salesianos.model.City;
 import es.salesianos.model.Country;
+import es.salesianos.model.Nationality;
+import es.salesianos.model.Role;
+import es.salesianos.model.Worker;
 import es.salesianos.service.AirplaneBrandNameService;
 import es.salesianos.service.AirplaneModelService;
 import es.salesianos.service.AirplaneService;
+import es.salesianos.service.CityService;
 import es.salesianos.service.CountryService;
+import es.salesianos.service.NationalityService;
+import es.salesianos.service.RoleService;
+import es.salesianos.service.WorkerService;
 
 @Controller
 public class Controlador {
@@ -41,6 +49,15 @@ public class Controlador {
 	List<Country> countryList;
 	
 	@Autowired 
+	List<City> cityList;
+	
+	@Autowired 
+	List<Nationality> nationalityList;
+	
+	@Autowired 
+	List<Role> roleList;
+	
+	@Autowired 
 	@Qualifier("countryService")
 	CountryService countryService;
 	
@@ -55,6 +72,22 @@ public class Controlador {
 	@Autowired 
 	@Qualifier("airplaneModelService")
 	AirplaneModelService airplaneModelService;
+	
+	@Autowired 
+	@Qualifier("workerService")
+	WorkerService workerService;
+	
+	@Autowired 
+	@Qualifier("cityService")
+	CityService cityService;
+	
+	@Autowired 
+	@Qualifier("nationalityService")
+	NationalityService nationalityService;
+	
+	@Autowired 
+	@Qualifier("roleService")
+	RoleService roleService;
 	
 	@GetMapping(path = "/LoadAirplanesList")
 	public ModelAndView loadAirplaneList() {
@@ -71,7 +104,6 @@ public class Controlador {
 	}
 	@GetMapping(path="/addAirplane")
 	public ModelAndView getAddAirplanePage(@RequestParam int cod) {
-		System.out.println(cod);
 		airplaneModelList = airplaneModelService.listAllAirplanesModelByBrandName(cod);
 		ModelAndView model = new ModelAndView("addAirplane");
 		model.addObject("airplane",new Airplane());
@@ -92,5 +124,22 @@ public class Controlador {
 		ModelAndView model = new ModelAndView("selectingCountry");
 		model.addObject("CountryList", countryList);
 		return model;
+	}
+	@GetMapping(path="/addWorker")
+	public ModelAndView getAddWorkerPage(@RequestParam int idCity) {
+		cityList = cityService.listAllCitiesByCountryID(idCity);
+		nationalityList = nationalityService.listAllNationalities();
+		roleList = roleService.listAllRoles();
+		ModelAndView model = new ModelAndView("addWorker");
+		model.addObject("worker",new Worker());
+		model.addObject("CityList", cityList);
+		model.addObject("NationalityList", nationalityList);
+		model.addObject("RoleList", roleList);
+		return model;
+	}
+	@PostMapping(path="/addWorker")
+	public String saveWorker(Worker worker)  {
+		workerService.addWorker(worker);
+		return "index";
 	}
 }

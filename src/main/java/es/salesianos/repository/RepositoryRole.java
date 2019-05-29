@@ -13,12 +13,15 @@ import es.salesianos.connection.ConnectionSQL;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Airplane;
 import es.salesianos.model.AirplaneModel;
+import es.salesianos.model.City;
 import es.salesianos.model.Country;
+import es.salesianos.model.Nationality;
+import es.salesianos.model.Role;
 import es.salesianos.model.Worker;
 
 
-@Repository("repositoryWorker")
-public class RepositoryWorker {
+@Repository("repositoryRole")
+public class RepositoryRole {
 	
 	private static final String jdbcUrl = "jdbc:mysql://localhost:3306/TFG";
 	ConnectionManager manager = new ConnectionSQL();
@@ -41,21 +44,21 @@ public class RepositoryWorker {
 		}
 	}
 
-	public void insertWorker(Worker worker) {
+	public List<Role> sellectAllNationalities() {
+		List<Role> listRoles = new ArrayList<Role>();
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
 		try {
-			prepareStatement = conn.prepareStatement("INSERT INTO Workers (Passport, Name, Surname, Photo, Address, Id_City, Id_Nationality, Password, Id_Role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			prepareStatement.setString(1, worker.getPassport());
-			prepareStatement.setString(2, worker.getName());
-			prepareStatement.setString(3, worker.getSurname());
-			prepareStatement.setString(4, worker.getPhoto());
-			prepareStatement.setString(5, worker.getAddress());
-			prepareStatement.setInt(6, worker.getIdCity());
-			prepareStatement.setInt(7, worker.getIdNationality());
-			prepareStatement.setString(8, worker.getPassword());
-			prepareStatement.setInt(9, worker.getIdRole());
-			prepareStatement.executeUpdate();
+			prepareStatement = conn.prepareStatement("SELECT * FROM Roles");
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Role roleInDatabase = new Role();
+				roleInDatabase.setIdRole(resultSet.getInt(1));
+				roleInDatabase.setRoleName(resultSet.getString(2));
+				listRoles.add(roleInDatabase);
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -63,5 +66,6 @@ public class RepositoryWorker {
 			close(prepareStatement);
 		}
 		manager.close(conn);
+		return listRoles;
 	}
 }

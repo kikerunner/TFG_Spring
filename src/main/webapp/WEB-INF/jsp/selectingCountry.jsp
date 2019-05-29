@@ -28,7 +28,7 @@
 			<tr>
 				<td><c:out value="${item.getCountryName()}"/> </td>
 				<td><c:out value="${item.getCountryCode()}"/> </td>
-				<td><a href="/addWorker?cod=${item.getIdcountry()}">Asociate</a></td>
+				<td><a href="/addWorker?idCity=${item.getIdcountry()}">Asociate</a></td>
 	    	</tr>
 		</c:forEach>
 	</tbody>

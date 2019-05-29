@@ -13,6 +13,7 @@ import es.salesianos.connection.ConnectionSQL;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Airplane;
 import es.salesianos.model.AirplaneModel;
+import es.salesianos.model.Worker;
 
 
 @Repository("repositoryairplane")

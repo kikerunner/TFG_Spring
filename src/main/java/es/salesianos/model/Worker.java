@@ -9,11 +9,33 @@ public class Worker {
 	private String name;
 	private String surname;
 	private String photo;
-	private String addres;
+	private String address;
 	private City city;
 	private Nationality nationality;
 	private String password;
 	private Role role;
+	private int idCity;
+	private int idNationality;
+	private int idRole;
+	
+	public int getIdCity() {
+		return idCity;
+	}
+	public void setIdCity(int idCity) {
+		this.idCity = idCity;
+	}
+	public int getIdNationality() {
+		return idNationality;
+	}
+	public void setIdNationality(int idNationality) {
+		this.idNationality = idNationality;
+	}
+	public int getIdRole() {
+		return idRole;
+	}
+	public void setIdRole(int idRole) {
+		this.idRole = idRole;
+	}
 	public int getIdworker() {
 		return idworker;
 	}
@@ -44,11 +66,11 @@ public class Worker {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	public String getAddres() {
-		return addres;
+	public String getAddress() {
+		return address;
 	}
-	public void setAddres(String addres) {
-		this.addres = addres;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public City getCity() {
 		return city;

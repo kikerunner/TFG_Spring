@@ -39,22 +39,6 @@ public class RepositoryAirplaneModel {
 			throw new RuntimeException(e);
 		}
 	}
-/*
-	public void insertAirplane(Airplane airplane) {
-		Connection conn = manager.open(jdbcUrl);
-		PreparedStatement prepareStatement = null;
-		try {
-			prepareStatement = conn.prepareStatement("INSERT INTO Airplanes (AIRPLANENAME) VALUES (?)");
-			prepareStatement.setString(1, airplane.getAirplaneName());
-			prepareStatement.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}finally {
-			close(prepareStatement);
-		}
-		manager.close(conn);
-	}*/
 	
 	public List<AirplaneModel> sellectAllAirplanesModel() {
 		List<AirplaneModel> listAirplanesModels = new ArrayList<AirplaneModel>();
