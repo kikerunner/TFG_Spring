@@ -16,7 +16,7 @@ public class Flight {
 	private Date beginDate;
 	private Date endDate;
 	private FoodAndDrink foodanddrink;
-	private CabrinCrewFlight cabincrewflight;
+	private CabinCrewFlight cabincrewflight;
 	private List<Reservation> reservations;
 	
 	public int getIdflight() {
@@ -73,10 +73,10 @@ public class Flight {
 	public void setFoodanddrink(FoodAndDrink foodanddrink) {
 		this.foodanddrink = foodanddrink;
 	}
-	public CabrinCrewFlight getCabincrewflight() {
+	public CabinCrewFlight getCabincrewflight() {
 		return cabincrewflight;
 	}
-	public void setCabincrewflight(CabrinCrewFlight cabincrewflight) {
+	public void setCabincrewflight(CabinCrewFlight cabincrewflight) {
 		this.cabincrewflight = cabincrewflight;
 	}
 	public List<Reservation> getReservations() {

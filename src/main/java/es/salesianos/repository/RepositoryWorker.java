@@ -13,6 +13,7 @@ import es.salesianos.connection.ConnectionSQL;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Airplane;
 import es.salesianos.model.AirplaneModel;
+import es.salesianos.model.City;
 import es.salesianos.model.Country;
 import es.salesianos.model.Worker;
 
@@ -63,5 +64,32 @@ public class RepositoryWorker {
 			close(prepareStatement);
 		}
 		manager.close(conn);
+	}
+	public List<Worker> sellectWorkersById(int idRole) {
+		List<Worker> listPilots = new ArrayList<Worker>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT idWorker, name, surname, Id_Role FROM Workers WHERE Id_Role = (?)");
+			prepareStatement.setInt(1, idRole);
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Worker workerInDatabase = new Worker();
+				workerInDatabase.setIdworker(resultSet.getInt(1));
+				workerInDatabase.setName(resultSet.getString(2));
+				workerInDatabase.setSurname(resultSet.getString(3));
+				workerInDatabase.setIdRole(resultSet.getInt(4));
+				listPilots.add(workerInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return listPilots;
 	}
 }

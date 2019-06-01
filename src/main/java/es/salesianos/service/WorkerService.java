@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import es.salesianos.model.Airplane;
+import es.salesianos.model.Role;
 import es.salesianos.model.Worker;
 import es.salesianos.repository.RepositoryAirplane;
 import es.salesianos.repository.RepositoryWorker;
@@ -19,6 +20,22 @@ public class WorkerService {
 
 	public RepositoryWorker getRepositoryWorker() {
 		return repositoryWorker;
+	}
+	
+	public List<Worker> listAllPilots(int idRole) {
+		return repositoryWorker.sellectWorkersById(idRole);
+	}
+	
+	public List<Worker> listAllCoPilots(int idRole) {
+		return repositoryWorker.sellectWorkersById(idRole);
+	}
+	
+	public List<Worker> listAllChiefCrewMembers(int idRole) {
+		return repositoryWorker.sellectWorkersById(idRole);
+	}
+	
+	public List<Worker> listAllFlightAttendants(int idRole) {
+		return repositoryWorker.sellectWorkersById(idRole);
 	}
 
 	public void setRepositoryWorker(RepositoryWorker repositoryWorker) {

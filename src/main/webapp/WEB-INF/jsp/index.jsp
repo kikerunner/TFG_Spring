@@ -24,6 +24,9 @@
 	<div>
 		<a href="/LoadAirplanesList">Airplanes List</a>
 	</div>
+	<div>
+		<a href="/addCabinCrewFlight">Adding Cabin Crew Flight</a>
+	</div>
 </div>
 <script src="js/bootstrap.min.js"></script>  
 </body>
