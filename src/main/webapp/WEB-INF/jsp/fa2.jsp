@@ -16,16 +16,17 @@
 </head>
 <body>
 <div class="form-group col-md-offset-3">
-	<form:form action="/fa2" method="get" modelAttribute="cabinCrewFlight"  class="form-inlin justify-content-center">
+	<form:form action="/fa3" method="get" modelAttribute="cabinCrewFlight"  class="form-inlin justify-content-center">
 		<form:input type="Number"  value="${ccf.idPilot}" style="display:none" name="idPilot" path="idPilot" class="form-control" width="250px"/> 
 		<form:input type="Number"  value="${ccf.idCoPilot}" style="display:none" name="idCoPilot" path="idCoPilot" class="form-control" width="250px"/> 
 		<form:input type="Number"  value="${ccf.numberOfFlightAttendants}" style="display:none" name="numberOfFlightAttendants" path="numberOfFlightAttendants" class="form-control" width="250px"/> 
 		<form:input type="Number"  value="${ccf.idChiefCrewMember}" style="display:none" name="idChiefCrewMember" path="idChiefCrewMember" class="form-control" width="250px"/> 
-		<label>FlightAtendant 1:</label>
-		<form:select class="form-control" path="idFlightAttendant1" >
-				<form:option value="0">Select Flight Attendant 1</form:option>
-				<c:forEach var="fa1" items="${FlightAttendant1List}">
-        		<form:option value="${fa1.idworker}"><c:out value="${fa1.name}, ${fa1.surname}"/></form:option>
+		<form:input type="Number"  value="${ccf.idFlightAttendant1}" style="display:none" name="idFlightAttendant1" path="idFlightAttendant1" class="form-control" width="250px"/> 
+		<label>FlightAtendant 2:</label>
+		<form:select class="form-control" path="idFlightAttendant2" >
+				<form:option value="0">Select Flight Attendant 2</form:option>
+				<c:forEach var="fa2" items="${FlightAttendant2List}">
+        		<form:option value="${fa2.idworker}"><c:out value="${fa2.name}, ${fa2.surname}"/></form:option>
     			</c:forEach>
 		</form:select>
 		<input type="submit" class="btn btn-primary" >

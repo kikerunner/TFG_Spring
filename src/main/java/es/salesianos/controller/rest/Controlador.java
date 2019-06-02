@@ -29,6 +29,7 @@ import es.salesianos.model.Worker;
 import es.salesianos.service.AirplaneBrandNameService;
 import es.salesianos.service.AirplaneModelService;
 import es.salesianos.service.AirplaneService;
+import es.salesianos.service.CabinCrewFlightService;
 import es.salesianos.service.CityService;
 import es.salesianos.service.CountryService;
 import es.salesianos.service.FoodAndDrinkService;
@@ -123,6 +124,11 @@ public class Controlador {
 	@Qualifier("foodAndDrinkService")
 	FoodAndDrinkService foodAndDrinkService;
 	
+	@Autowired 
+	@Qualifier("cabinCrewFlightService")
+	CabinCrewFlightService cabinCrewFlightService;
+	
+	
 	@GetMapping(path = "/LoadAirplanesList")
 	public ModelAndView loadAirplaneList() {
 		listAllAirplanes = airplaneservice.listAllAirplanesAndModels();
@@ -207,10 +213,142 @@ public class Controlador {
 	}
 	@GetMapping(path="/fa1")
 	public ModelAndView getFlightAttendant1(CabinCrewFlight cabincrewFlight) {
-		ModelAndView model = new ModelAndView("chiefCrewMember");
+		ModelAndView model = new ModelAndView("fa1");
 		flightAttendant1List = workerService.listAllFlightAttendants(4);
 		model.addObject("cabinCrewFlight",new CabinCrewFlight());
+		model.addObject("ccf", cabincrewFlight);
 		model.addObject("FlightAttendant1List", flightAttendant1List);
 		return model;
+	}
+	@GetMapping(path="/fa2")
+	public ModelAndView getFlightAttendant2(CabinCrewFlight cabincrewFlight) {
+		ModelAndView model = new ModelAndView("fa2");
+		flightAttendant2List = workerService.listAllFlightAttendants(4);
+		for (int i = 0; i < flightAttendant2List.size(); i++) {
+			if(cabincrewFlight.getIdFlightAttendant1() == flightAttendant2List.get(i).getIdworker()) {
+				flightAttendant2List.remove(i);
+			}
+		}
+		model.addObject("cabinCrewFlight",new CabinCrewFlight());
+		model.addObject("ccf", cabincrewFlight);
+		model.addObject("FlightAttendant2List", flightAttendant2List);
+		return model;
+	}
+	@GetMapping(path="/fa3")
+	public ModelAndView getFlightAttendant3(CabinCrewFlight cabincrewFlight) {
+		ModelAndView model = new ModelAndView("fa3");
+		flightAttendant3List = workerService.listAllFlightAttendants(4);
+		for (int i = 0; i < flightAttendant3List.size(); i++) {
+			if(cabincrewFlight.getIdFlightAttendant1() == flightAttendant3List.get(i).getIdworker()) {
+				flightAttendant3List.remove(i);
+			}
+			if(cabincrewFlight.getIdFlightAttendant2() == flightAttendant3List.get(i).getIdworker()) {
+				flightAttendant3List.remove(i);
+			}
+		}
+		model.addObject("cabinCrewFlight",new CabinCrewFlight());
+		model.addObject("ccf", cabincrewFlight);
+		model.addObject("FlightAttendant3List", flightAttendant3List);
+		return model;
+	}
+
+	@GetMapping(path="/fa4")
+	public ModelAndView getFlightAttendant4(CabinCrewFlight cabincrewFlight) {
+		if(cabincrewFlight.getNumberOfFlightAttendants() == 4) {
+			ModelAndView model = new ModelAndView("fa4Def");
+			flightAttendant4List = workerService.listAllFlightAttendants(4);
+			for (int i = 0; i < flightAttendant4List.size(); i++) {
+				if(cabincrewFlight.getIdFlightAttendant1() == flightAttendant4List.get(i).getIdworker()) {
+					flightAttendant4List.remove(i);
+				}
+				if(cabincrewFlight.getIdFlightAttendant2() == flightAttendant4List.get(i).getIdworker()) {
+					flightAttendant4List.remove(i);
+				}
+				if(cabincrewFlight.getIdFlightAttendant3() == flightAttendant4List.get(i).getIdworker()) {
+					flightAttendant4List.remove(i);
+				}
+			}
+			model.addObject("cabinCrewFlight",new CabinCrewFlight());
+			model.addObject("ccf", cabincrewFlight);
+			model.addObject("FlightAttendant4List", flightAttendant4List);
+			return model;	
+		}else {
+			ModelAndView model = new ModelAndView("fa4");
+			flightAttendant4List = workerService.listAllFlightAttendants(4);
+			for (int i = 0; i < flightAttendant4List.size(); i++) {
+				if(cabincrewFlight.getIdFlightAttendant1() == flightAttendant4List.get(i).getIdworker()) {
+					flightAttendant4List.remove(i);
+				}
+				if(cabincrewFlight.getIdFlightAttendant2() == flightAttendant4List.get(i).getIdworker()) {
+					flightAttendant4List.remove(i);
+				}
+				if(cabincrewFlight.getIdFlightAttendant3() == flightAttendant4List.get(i).getIdworker()) {
+					flightAttendant4List.remove(i);
+				}
+			}
+			model.addObject("cabinCrewFlight",new CabinCrewFlight());
+			model.addObject("ccf", cabincrewFlight);
+			model.addObject("FlightAttendant4List", flightAttendant4List);
+			return model;
+		}
+	}
+	@PostMapping(path="/addCCF4A")
+	public String saveCabinCrewFlight4Attendants(CabinCrewFlight cabincrewflight)  {
+		cabinCrewFlightService.addCabinCrewFlight4A(cabincrewflight);;
+		return "index";
+	}
+	@GetMapping(path="/fa5")
+	public ModelAndView getFlightAttendant5(CabinCrewFlight cabincrewFlight) {
+		ModelAndView model = new ModelAndView("fa5");
+		flightAttendant5List = workerService.listAllFlightAttendants(4);
+		for (int i = 0; i < flightAttendant5List.size(); i++) {
+			if(cabincrewFlight.getIdFlightAttendant1() == flightAttendant5List.get(i).getIdworker()) {
+				flightAttendant5List.remove(i);
+			}
+			if(cabincrewFlight.getIdFlightAttendant2() == flightAttendant5List.get(i).getIdworker()) {
+				flightAttendant5List.remove(i);
+			}
+			if(cabincrewFlight.getIdFlightAttendant3() == flightAttendant5List.get(i).getIdworker()) {
+				flightAttendant5List.remove(i);
+			}
+			if(cabincrewFlight.getIdFlightAttendant4() == flightAttendant5List.get(i).getIdworker()) {
+				flightAttendant5List.remove(i);
+			}
+		}
+		model.addObject("cabinCrewFlight",new CabinCrewFlight());
+		model.addObject("ccf", cabincrewFlight);
+		model.addObject("FlightAttendant5List", flightAttendant5List);
+		return model;
+	}
+	@GetMapping(path="/fa6")
+	public ModelAndView getFlightAttendant6(CabinCrewFlight cabincrewFlight) {
+		ModelAndView model = new ModelAndView("fa6");
+		flightAttendant6List = workerService.listAllFlightAttendants(4);
+		for (int i = 0; i < flightAttendant6List.size(); i++) {
+			if(cabincrewFlight.getIdFlightAttendant1() == flightAttendant6List.get(i).getIdworker()) {
+				flightAttendant6List.remove(i);
+			}
+			if(cabincrewFlight.getIdFlightAttendant2() == flightAttendant6List.get(i).getIdworker()) {
+				flightAttendant6List.remove(i);
+			}
+			if(cabincrewFlight.getIdFlightAttendant3() == flightAttendant6List.get(i).getIdworker()) {
+				flightAttendant6List.remove(i);
+			}
+			if(cabincrewFlight.getIdFlightAttendant4() == flightAttendant6List.get(i).getIdworker()) {
+				flightAttendant6List.remove(i);
+			}
+			if(cabincrewFlight.getIdFlightAttendant5() == flightAttendant6List.get(i).getIdworker()) {
+				flightAttendant6List.remove(i);
+			}
+		}
+		model.addObject("cabinCrewFlight",new CabinCrewFlight());
+		model.addObject("ccf", cabincrewFlight);
+		model.addObject("FlightAttendant6List", flightAttendant6List);
+		return model;
+	}
+	@PostMapping(path="/addCCF6A")
+	public String saveCabinCrewFlight6Attendants(CabinCrewFlight cabincrewflight)  {
+		cabinCrewFlightService.addCabinCrewFlight6A(cabincrewflight);;
+		return "index";
 	}
 }

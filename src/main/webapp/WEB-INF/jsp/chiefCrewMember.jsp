@@ -18,6 +18,8 @@
 <div class="form-group col-md-offset-3">
 	<form:form action="/fa1" method="get" modelAttribute="cabinCrewFlight"  class="form-inlin justify-content-center">
 		<form:input type="Number"  value="${ccf.idPilot}" style="display:none" name="idPilot" path="idPilot" class="form-control" width="250px"/> 
+		<form:input type="Number"  value="${ccf.idCoPilot}" style="display:none" name="idCoPilot" path="idCoPilot" class="form-control" width="250px"/> 
+		<form:input type="Number"  value="${ccf.numberOfFlightAttendants}" style="display:none" name="numberOfFlightAttendants" path="numberOfFlightAttendants" class="form-control" width="250px"/> 
 		<label>chief Crew Member:</label>
 		<form:select class="form-control" path="idChiefCrewMember" >
 				<form:option value="0">Select ChiefCrewMember</form:option>
