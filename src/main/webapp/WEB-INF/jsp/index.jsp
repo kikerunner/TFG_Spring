@@ -27,6 +27,12 @@
 	<div>
 		<a href="/addCabinCrewFlight">Adding Cabin Crew Flight</a>
 	</div>
+	<div>
+		<a href="/addPassenger">Adding a passenger</a>
+	</div>
+	<div>
+		<a href="/selectingOriginCountry">Adding a flight</a>
+	</div>
 </div>
 <script src="js/bootstrap.min.js"></script>  
 </body>

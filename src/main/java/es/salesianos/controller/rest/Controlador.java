@@ -19,11 +19,14 @@ import org.springframework.web.servlet.ModelAndView;
 import es.salesianos.model.Airplane;
 import es.salesianos.model.AirplaneBrandName;
 import es.salesianos.model.AirplaneModel;
+import es.salesianos.model.Airport;
 import es.salesianos.model.CabinCrewFlight;
 import es.salesianos.model.City;
 import es.salesianos.model.Country;
+import es.salesianos.model.Flight;
 import es.salesianos.model.FoodAndDrink;
 import es.salesianos.model.Nationality;
+import es.salesianos.model.Passenger;
 import es.salesianos.model.Role;
 import es.salesianos.model.Worker;
 import es.salesianos.service.AirplaneBrandNameService;
@@ -34,6 +37,7 @@ import es.salesianos.service.CityService;
 import es.salesianos.service.CountryService;
 import es.salesianos.service.FoodAndDrinkService;
 import es.salesianos.service.NationalityService;
+import es.salesianos.service.PassengerService;
 import es.salesianos.service.RoleService;
 import es.salesianos.service.WorkerService;
 
@@ -87,6 +91,12 @@ public class Controlador {
 	
 	@Autowired 
 	List<Worker> flightAttendant6List;
+
+	@Autowired 
+	List<Airport> airportOrigin;
+	
+	@Autowired 
+	List<Airport> airportDestiny;
 	
 	@Autowired 
 	@Qualifier("countryService")
@@ -111,6 +121,10 @@ public class Controlador {
 	@Autowired 
 	@Qualifier("cityService")
 	CityService cityService;
+	
+	@Autowired 
+	@Qualifier("passengerService")
+	PassengerService passengerService;
 	
 	@Autowired 
 	@Qualifier("nationalityService")
@@ -350,5 +364,47 @@ public class Controlador {
 	public String saveCabinCrewFlight6Attendants(CabinCrewFlight cabincrewflight)  {
 		cabinCrewFlightService.addCabinCrewFlight6A(cabincrewflight);;
 		return "index";
+	}
+	@GetMapping(path="/addPassenger")
+	public ModelAndView getPassengerPage() {
+		ModelAndView model = new ModelAndView("addPassenger");
+		nationalityList = nationalityService.listAllNationalities();
+		countryList = countryService.listAllCountries();
+		model.addObject("passenger",new Passenger());
+		model.addObject("NationalityList", nationalityList);
+		model.addObject("CountryList", countryList);
+		return model;
+	}
+	@PostMapping(path="/addPassenger")
+	public String savePassenger(Passenger passenger)  {
+		passengerService.addPassenger(passenger);
+		return "index";
+	}
+	@GetMapping(path = "/selectingOriginCountry")
+	public ModelAndView asociateOriginCountry() {
+		countryList = countryService.listAllCountries();
+		ModelAndView model = new ModelAndView("selectingOriginCountry");
+		model.addObject("CountryList", countryList);
+		return model;
+	}
+	@GetMapping(path = "/selectingDestinyCountry")
+	public ModelAndView asociateDestinyCountry(int idOriginCountry) {
+		countryList = countryService.listAllCountries();
+		ModelAndView model = new ModelAndView("selectingDestinyCountry");
+		model.addObject("CountryList", countryList);
+		model.addObject("IdOriginCountry", idOriginCountry);
+		return model;
+	}
+	@GetMapping(path="/addFlight")
+	public ModelAndView getAddFlightPage(int idOriginCountry, int idDestinyCountry) {
+		ModelAndView model = new ModelAndView("addFlight");
+		airportDestiny 
+		airportOrigin 
+		model.addObject("Flight",new Flight());
+		model.addObject("NationalityList", nationalityList);
+		model.addObject("CountryList", countryList);
+		model.addObject("IdOriginCountry", idOriginCountry);
+		model.addObject("IdDestinyCountry", idDestinyCountry);
+		return model;
 	}
 }

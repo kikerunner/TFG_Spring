@@ -10,6 +10,7 @@ public class Country {
 	private String countryName;
 	private String countryCode;
 	private List<City> cities;
+	
 	public int getIdcountry() {
 		return idcountry;
 	}
