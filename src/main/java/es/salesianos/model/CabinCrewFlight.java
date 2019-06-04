@@ -8,25 +8,72 @@ public class CabinCrewFlight {
 	private Flight flight;
 	private Worker pilot;
 	private int idPilot;
+	private String pilotName;
+	private String pilotSurname;
 	private Worker coPilot;
 	private int idCoPilot;
+	private String coPilotName;
+	private String coPilotSurname;
 	private int numberOfFlightAttendants;
 	private Worker chiefCrewMember;
 	private int idChiefCrewMember;
+	private String chiefCrewMemberName;
+	private String chiefCrewSurname;
 	private Worker flightAttendant1;
 	private int idFlightAttendant1;
+	private String flightAttendant1Name;
+	private String flightAttendant1Surname;
 	private Worker flightAttendant2;
 	private int idFlightAttendant2;
+	private String flightAttendant2Name;
+	private String flightAttendant2Surname;
 	private Worker flightAttendant3;
 	private int idFlightAttendant3;
+	private String flightAttendant3Name;
+	private String flightAttendant3Surname;
 	private Worker flightAttendant4;
 	private int idFlightAttendant4;
+	private String flightAttendant4Name;
+	private String flightAttendant4Surname;
 	private Worker flightAttendant5;
 	private int idFlightAttendant5;
+	private String flightAttendant5Name;
+	private String flightAttendant5Surname;
 	private Worker flightAttendant6;
 	private int idFlightAttendant6;
+	private String flightAttendant6Name;
+	private String flightAttendant6Surname;
 	
-	
+	public String getPilotName() {
+		return pilotName;
+	}
+	public void setPilotName(String pilotName) {
+		this.pilotName = pilotName;
+	}
+	public String getPilotSurname() {
+		return pilotSurname;
+	}
+	public void setPilotSurname(String pilotSurname) {
+		this.pilotSurname = pilotSurname;
+	}
+	public String getCoPilotName() {
+		return coPilotName;
+	}
+	public void setCoPilotName(String coPilotName) {
+		this.coPilotName = coPilotName;
+	}
+	public String getCoPilotSurname() {
+		return coPilotSurname;
+	}
+	public void setCoPilotSurname(String coPilotSurname) {
+		this.coPilotSurname = coPilotSurname;
+	}
+	public int getNumberOfFlightAttendants() {
+		return numberOfFlightAttendants;
+	}
+	public void setNumberOfFlightAttendants(int numberOfFlightAttendants) {
+		this.numberOfFlightAttendants = numberOfFlightAttendants;
+	}
 	public Worker getChiefCrewMember() {
 		return chiefCrewMember;
 	}
@@ -39,11 +86,89 @@ public class CabinCrewFlight {
 	public void setIdChiefCrewMember(int idChiefCrewMember) {
 		this.idChiefCrewMember = idChiefCrewMember;
 	}
-	public int getNumberOfFlightAttendants() {
-		return numberOfFlightAttendants;
+	public String getChiefCrewMemberName() {
+		return chiefCrewMemberName;
 	}
-	public void setNumberOfFlightAttendants(int numberOfFlightAttendants) {
-		this.numberOfFlightAttendants = numberOfFlightAttendants;
+	public void setChiefCrewMemberName(String chiefCrewMemberName) {
+		this.chiefCrewMemberName = chiefCrewMemberName;
+	}
+	public String getChiefCrewSurname() {
+		return chiefCrewSurname;
+	}
+	public void setChiefCrewSurname(String chiefCrewSurname) {
+		this.chiefCrewSurname = chiefCrewSurname;
+	}
+	public String getFlightAttendant1Name() {
+		return flightAttendant1Name;
+	}
+	public void setFlightAttendant1Name(String flightAttendant1Name) {
+		this.flightAttendant1Name = flightAttendant1Name;
+	}
+	public String getFlightAttendant1Surname() {
+		return flightAttendant1Surname;
+	}
+	public void setFlightAttendant1Surname(String flightAttendant1Surname) {
+		this.flightAttendant1Surname = flightAttendant1Surname;
+	}
+	public String getFlightAttendant2Name() {
+		return flightAttendant2Name;
+	}
+	public void setFlightAttendant2Name(String flightAttendant2Name) {
+		this.flightAttendant2Name = flightAttendant2Name;
+	}
+	public String getFlightAttendant2Surname() {
+		return flightAttendant2Surname;
+	}
+	public void setFlightAttendant2Surname(String flightAttendant2Surname) {
+		this.flightAttendant2Surname = flightAttendant2Surname;
+	}
+	public String getFlightAttendant3Name() {
+		return flightAttendant3Name;
+	}
+	public void setFlightAttendant3Name(String flightAttendant3Name) {
+		this.flightAttendant3Name = flightAttendant3Name;
+	}
+	public String getFlightAttendant3Surname() {
+		return flightAttendant3Surname;
+	}
+	public void setFlightAttendant3Surname(String flightAttendant3Surname) {
+		this.flightAttendant3Surname = flightAttendant3Surname;
+	}
+	public String getFlightAttendant4Name() {
+		return flightAttendant4Name;
+	}
+	public void setFlightAttendant4Name(String flightAttendant4Name) {
+		this.flightAttendant4Name = flightAttendant4Name;
+	}
+	public String getFlightAttendant4Surname() {
+		return flightAttendant4Surname;
+	}
+	public void setFlightAttendant4Surname(String flightAttendant4Surname) {
+		this.flightAttendant4Surname = flightAttendant4Surname;
+	}
+	public String getFlightAttendant5Name() {
+		return flightAttendant5Name;
+	}
+	public void setFlightAttendant5Name(String flightAttendant5Name) {
+		this.flightAttendant5Name = flightAttendant5Name;
+	}
+	public String getFlightAttendant5Surname() {
+		return flightAttendant5Surname;
+	}
+	public void setFlightAttendant5Surname(String flightAttendant5Surname) {
+		this.flightAttendant5Surname = flightAttendant5Surname;
+	}
+	public String getFlightAttendant6Name() {
+		return flightAttendant6Name;
+	}
+	public void setFlightAttendant6Name(String flightAttendant6Name) {
+		this.flightAttendant6Name = flightAttendant6Name;
+	}
+	public String getFlightAttendant6Surname() {
+		return flightAttendant6Surname;
+	}
+	public void setFlightAttendant6Surname(String flightAttendant6Surname) {
+		this.flightAttendant6Surname = flightAttendant6Surname;
 	}
 	public int getIdPilot() {
 		return idPilot;

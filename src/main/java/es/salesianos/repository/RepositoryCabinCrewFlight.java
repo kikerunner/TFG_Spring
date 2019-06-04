@@ -89,4 +89,118 @@ public class RepositoryCabinCrewFlight {
 		}
 		manager.close(conn);
 	}
+	
+	public List<CabinCrewFlight> sellectAllACabinCrewFlight4Workers() {
+		List<CabinCrewFlight> listCabinCrewFlight = new ArrayList<CabinCrewFlight>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT C.idCabinCrewFlight, K.idWorker, K.Name, K.Surname, K1.idWorker, K1.Name, K1.Surname, K2.idWorker, K2.Name, K2.Surname, K3.idWorker, K3.Name, K3.Surname, K4.idWorker, K4.Name, K4.Surname, K5.idWorker, K5.Name, K5.Surname, K6.idWorker, K6.Name, K6.Surname FROM TFG.CabinCrewFlight AS C, TFG.Workers AS K, TFG.Workers AS K1, TFG.Workers AS K2, TFG.Workers AS K3, TFG.Workers AS K4, TFG.Workers AS K5, TFG.Workers AS K6, TFG.Workers AS K7, TFG.Workers AS K8, TFG.Workers AS K9  WHERE K.idWorker and K.idWorker = C.id_Pilot AND K1.idWorker = C.id_Copilot AND K2.idWorker = C.id_ChiefCrewMember AND K3.idWorker = C.id_FlightAttendant1 AND K4.idWorker = C.id_FlightAttendant2 AND K5.idWorker = C.id_FlightAttendant3 AND K6.idWorker = C.id_FlightAttendant4 group by C.idCabinCrewFlight HAVING COUNT(*) > 1;");
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				CabinCrewFlight cabinCrewFlightInDatabase = new CabinCrewFlight();
+				cabinCrewFlightInDatabase.setIdcabinCrewFlight(resultSet.getInt(1));
+				
+				cabinCrewFlightInDatabase.setIdPilot(resultSet.getInt(2));
+				cabinCrewFlightInDatabase.setPilotName(resultSet.getString(3));;
+				cabinCrewFlightInDatabase.setPilotSurname(resultSet.getString(4));
+				
+				cabinCrewFlightInDatabase.setIdCoPilot(resultSet.getInt(5));
+				cabinCrewFlightInDatabase.setCoPilotName(resultSet.getString(6));;
+				cabinCrewFlightInDatabase.setCoPilotSurname(resultSet.getString(7));
+				
+				cabinCrewFlightInDatabase.setIdChiefCrewMember(resultSet.getInt(8));
+				cabinCrewFlightInDatabase.setChiefCrewMemberName(resultSet.getString(9));;
+				cabinCrewFlightInDatabase.setChiefCrewSurname(resultSet.getString(10));
+				
+				cabinCrewFlightInDatabase.setIdFlightAttendant1(resultSet.getInt(11));
+				cabinCrewFlightInDatabase.setFlightAttendant1Name(resultSet.getString(12));;
+				cabinCrewFlightInDatabase.setFlightAttendant1Surname(resultSet.getString(13));
+				
+				cabinCrewFlightInDatabase.setIdFlightAttendant2(resultSet.getInt(14));
+				cabinCrewFlightInDatabase.setFlightAttendant2Name(resultSet.getString(15));;
+				cabinCrewFlightInDatabase.setFlightAttendant2Surname(resultSet.getString(16));
+				
+				cabinCrewFlightInDatabase.setIdFlightAttendant3(resultSet.getInt(17));
+				cabinCrewFlightInDatabase.setFlightAttendant3Name(resultSet.getString(18));;
+				cabinCrewFlightInDatabase.setFlightAttendant3Surname(resultSet.getString(19));
+				
+				cabinCrewFlightInDatabase.setIdFlightAttendant4(resultSet.getInt(20));
+				cabinCrewFlightInDatabase.setFlightAttendant4Name(resultSet.getString(21));;
+				cabinCrewFlightInDatabase.setFlightAttendant4Surname(resultSet.getString(22));
+				
+				listCabinCrewFlight.add(cabinCrewFlightInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return listCabinCrewFlight;
+	}
+	public List<CabinCrewFlight> sellectAllACabinCrewFlight6Workers() {
+		List<CabinCrewFlight> listCabinCrewFlight = new ArrayList<CabinCrewFlight>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT C.idCabinCrewFlight, K.idWorker, K.Name, K.Surname, K1.idWorker, K1.Name, K1.Surname, K2.idWorker, K2.Name, K2.Surname, K3.idWorker, K3.Name, K3.Surname, K4.idWorker, K4.Name, K4.Surname, K5.idWorker, K5.Name, K5.Surname, K6.idWorker, K6.Name, K6.Surname, K7.idWorker, K7.Name, K7.Surname, K8.idWorker, K8.Name, K8.Surname FROM TFG.CabinCrewFlight AS C, TFG.Workers AS K, TFG.Workers AS K1, TFG.Workers AS K2, TFG.Workers AS K3, TFG.Workers AS K4, TFG.Workers AS K5, TFG.Workers AS K6, TFG.Workers AS K7, TFG.Workers AS K8, TFG.Workers AS K9  WHERE K.idWorker and K.idWorker = C.id_Pilot AND K1.idWorker = C.id_Copilot AND K2.idWorker = C.id_ChiefCrewMember AND K3.idWorker = C.id_FlightAttendant1 AND K4.idWorker = C.id_FlightAttendant2 AND K5.idWorker = C.id_FlightAttendant3 AND K6.idWorker = C.id_FlightAttendant4 AND K5.idWorker = C.id_FlightAttendant3 AND K6.idWorker = C.id_FlightAttendant4 AND K7.idWorker = C.id_FlightAttendant5 AND K8.idWorker = C.id_FlightAttendant6 group by C.idCabinCrewFlight HAVING COUNT(*) > 1;");
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				CabinCrewFlight cabinCrewFlightInDatabase = new CabinCrewFlight();
+				cabinCrewFlightInDatabase.setIdcabinCrewFlight(resultSet.getInt(1));
+				
+				cabinCrewFlightInDatabase.setIdPilot(resultSet.getInt(2));
+				cabinCrewFlightInDatabase.setPilotName(resultSet.getString(3));;
+				cabinCrewFlightInDatabase.setPilotSurname(resultSet.getString(4));
+				
+				cabinCrewFlightInDatabase.setIdCoPilot(resultSet.getInt(5));
+				cabinCrewFlightInDatabase.setCoPilotName(resultSet.getString(6));;
+				cabinCrewFlightInDatabase.setCoPilotSurname(resultSet.getString(7));
+				
+				cabinCrewFlightInDatabase.setIdChiefCrewMember(resultSet.getInt(8));
+				cabinCrewFlightInDatabase.setChiefCrewMemberName(resultSet.getString(9));;
+				cabinCrewFlightInDatabase.setChiefCrewSurname(resultSet.getString(10));
+				
+				cabinCrewFlightInDatabase.setIdFlightAttendant1(resultSet.getInt(11));
+				cabinCrewFlightInDatabase.setFlightAttendant1Name(resultSet.getString(12));;
+				cabinCrewFlightInDatabase.setFlightAttendant1Surname(resultSet.getString(13));
+				
+				cabinCrewFlightInDatabase.setIdFlightAttendant2(resultSet.getInt(14));
+				cabinCrewFlightInDatabase.setFlightAttendant2Name(resultSet.getString(15));;
+				cabinCrewFlightInDatabase.setFlightAttendant2Surname(resultSet.getString(16));
+				
+				cabinCrewFlightInDatabase.setIdFlightAttendant3(resultSet.getInt(17));
+				cabinCrewFlightInDatabase.setFlightAttendant3Name(resultSet.getString(18));;
+				cabinCrewFlightInDatabase.setFlightAttendant3Surname(resultSet.getString(19));
+				
+				cabinCrewFlightInDatabase.setIdFlightAttendant4(resultSet.getInt(20));
+				cabinCrewFlightInDatabase.setFlightAttendant4Name(resultSet.getString(21));;
+				cabinCrewFlightInDatabase.setFlightAttendant4Surname(resultSet.getString(22));
+				
+				cabinCrewFlightInDatabase.setIdFlightAttendant5(resultSet.getInt(23));
+				cabinCrewFlightInDatabase.setFlightAttendant5Name(resultSet.getString(24));;
+				cabinCrewFlightInDatabase.setFlightAttendant5Surname(resultSet.getString(25));
+				
+				cabinCrewFlightInDatabase.setIdFlightAttendant6(resultSet.getInt(26));
+				cabinCrewFlightInDatabase.setFlightAttendant6Name(resultSet.getString(27));;
+				cabinCrewFlightInDatabase.setFlightAttendant6Surname(resultSet.getString(28));
+				
+				System.out.println("id Flight attendant" + resultSet.getInt(26));
+				listCabinCrewFlight.add(cabinCrewFlightInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return listCabinCrewFlight;
+	}
 }

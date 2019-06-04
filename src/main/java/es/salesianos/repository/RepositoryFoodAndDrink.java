@@ -15,6 +15,7 @@ import es.salesianos.model.Airplane;
 import es.salesianos.model.AirplaneModel;
 import es.salesianos.model.Country;
 import es.salesianos.model.FoodAndDrink;
+import es.salesianos.model.Nationality;
 import es.salesianos.model.Worker;
 
 
@@ -61,5 +62,29 @@ public class RepositoryFoodAndDrink {
 			close(prepareStatement);
 		}
 		manager.close(conn);
+	}
+	public List<FoodAndDrink> sellectAllFoodAndDrink() {
+		List<FoodAndDrink> listFoodAndDrinks = new ArrayList<FoodAndDrink>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT F.idFoodAndDrinks, F.Name FROM TFG.FoodAndDrinks AS F;");
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				FoodAndDrink foodAndDrinkInDatabase = new FoodAndDrink();
+				foodAndDrinkInDatabase.setIdfoodAndDrink(resultSet.getInt(1));
+				foodAndDrinkInDatabase.setName(resultSet.getString(2));
+				listFoodAndDrinks.add(foodAndDrinkInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return listFoodAndDrinks;
 	}
 }

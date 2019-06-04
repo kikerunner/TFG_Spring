@@ -21,6 +21,7 @@ public class RepositoryAirplane {
 	
 	private static final String jdbcUrl = "jdbc:mysql://localhost:3306/TFG";
 	ConnectionManager manager = new ConnectionSQL();
+	private Airplane airplaneInDatabse;
 
 	private void close(PreparedStatement prepareStatement) {
 		try {
@@ -90,6 +91,36 @@ public class RepositoryAirplane {
 		}
 		manager.close(conn);
 		return listAirplanes;
+	}
+	
+	public Airplane selectAirplaneByID(int idAirplane) {
+		Airplane airplaneInDatabase = new Airplane();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT * FROM Airplanes WHERE idAirplane = (?)");
+			prepareStatement.setInt(1, idAirplane);
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				airplaneInDatabase.setIdAirplane(resultSet.getInt(1));
+				airplaneInDatabase.setAirplaneName(resultSet.getString(2));
+				airplaneInDatabase.setIdAirplaneModel(resultSet.getInt(3));
+				airplaneInDatabase.setFlightHours(resultSet.getFloat(4));
+				airplaneInDatabase.setSeatsNumber(resultSet.getInt(5));
+				airplaneInDatabase.setFuelQuantity(resultSet.getInt(6));
+				airplaneInDatabase.setWorkersNumber(resultSet.getInt(7));
+				System.out.println("En repo:" + airplaneInDatabase.getWorkersNumber());
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return airplaneInDatabase;
 	}
 	
 	public List<Airplane> sellectAllAirplanesAndModel() {

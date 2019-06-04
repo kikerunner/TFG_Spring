@@ -32,6 +32,7 @@ import es.salesianos.model.Worker;
 import es.salesianos.service.AirplaneBrandNameService;
 import es.salesianos.service.AirplaneModelService;
 import es.salesianos.service.AirplaneService;
+import es.salesianos.service.AirportService;
 import es.salesianos.service.CabinCrewFlightService;
 import es.salesianos.service.CityService;
 import es.salesianos.service.CountryService;
@@ -93,10 +94,22 @@ public class Controlador {
 	List<Worker> flightAttendant6List;
 
 	@Autowired 
-	List<Airport> airportOrigin;
+	List<Airport> airportsOriginList;
 	
 	@Autowired 
-	List<Airport> airportDestiny;
+	List<Airport> airportsDestinyList;
+	
+	@Autowired 
+	List<FoodAndDrink> foodAndDrinkList;
+	
+	@Autowired 
+	List<CabinCrewFlight> cabinCrewFlightList;
+	
+	@Autowired 
+	List<CabinCrewFlight> cabinCrewFlightWorkersList;
+	
+	@Autowired 
+	Airplane airplaneFilter;
 	
 	@Autowired 
 	@Qualifier("countryService")
@@ -141,6 +154,10 @@ public class Controlador {
 	@Autowired 
 	@Qualifier("cabinCrewFlightService")
 	CabinCrewFlightService cabinCrewFlightService;
+	
+	@Autowired 
+	@Qualifier("airportService")
+	AirportService airportService;
 	
 	
 	@GetMapping(path = "/LoadAirplanesList")
@@ -398,13 +415,35 @@ public class Controlador {
 	@GetMapping(path="/addFlight")
 	public ModelAndView getAddFlightPage(int idOriginCountry, int idDestinyCountry) {
 		ModelAndView model = new ModelAndView("addFlight");
-		airportDestiny 
-		airportOrigin 
+		airportsOriginList = airportService.listAllOriginAirportsByIdCountry(idOriginCountry);
+		airportsDestinyList = airportService.listAllDestinyAirportsByIdCountry(idDestinyCountry);
+		listAllAirplanes = airplaneservice.listAllAirplanes();
+		foodAndDrinkList = foodAndDrinkService.selectFoodAndDrink();
 		model.addObject("Flight",new Flight());
-		model.addObject("NationalityList", nationalityList);
-		model.addObject("CountryList", countryList);
-		model.addObject("IdOriginCountry", idOriginCountry);
-		model.addObject("IdDestinyCountry", idDestinyCountry);
+		model.addObject("AirportsOriginList", airportsOriginList);
+		model.addObject("AirportsDestinyList", airportsDestinyList);
+		model.addObject("ListAirplanes", listAllAirplanes);
+		model.addObject("FoodAndDrinkList", foodAndDrinkList);
 		return model;
+	}
+	@GetMapping(path="/selectingCabinCrewFlight")
+	public ModelAndView getAddFlightPage(Flight flight) {
+		airplaneFilter = airplaneservice.selectingAirplaneByID(flight.getIdAirplane());
+		if(airplaneFilter.getWorkersNumber() == 4) {
+			ModelAndView model = new ModelAndView("selectingCabinCrewFlight4Workers");
+			cabinCrewFlightWorkersList = cabinCrewFlightService.selectAllCabinCrewFlihgt4();
+			model.addObject("Flight",new Flight());
+			model.addObject("flight", flight);
+			model.addObject("CabinCrewFlightWorkersList", cabinCrewFlightWorkersList);
+			return model;
+		}else {
+			ModelAndView model = new ModelAndView("selectingCabinCrewFlight6Workers");
+			cabinCrewFlightWorkersList = cabinCrewFlightService.selectAllCabinCrewFlihgt6();
+			model.addObject("Flight",new Flight());
+			model.addObject("flight", flight);
+			model.addObject("CabinCrewFlightWorkersList", cabinCrewFlightWorkersList);
+			return model;
+		}
+		
 	}
 }

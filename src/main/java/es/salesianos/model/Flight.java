@@ -1,6 +1,7 @@
 package es.salesianos.model;
 
-import java.util.Date;
+
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -8,10 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Flight {
 	private int idflight;
-	private String flgihtName;
+	private String flightName;
 	private Airplane airplane;
 	private int idAirplane;
-	private int distance;
+	private Float distance;
 	private Airport airportOrigin;
 	private int idAirportOrigin;
 	private Airport airportDestiny;
@@ -69,11 +70,11 @@ public class Flight {
 	public void setIdflight(int idflight) {
 		this.idflight = idflight;
 	}
-	public String getFlgihtName() {
-		return flgihtName;
+	public String getFlightName() {
+		return flightName;
 	}
-	public void setFlgihtName(String flgihtName) {
-		this.flgihtName = flgihtName;
+	public void setFlightName(String flightName) {
+		this.flightName = flightName;
 	}
 	public Airplane getAirplane() {
 		return airplane;
@@ -81,10 +82,10 @@ public class Flight {
 	public void setAirplane(Airplane airplane) {
 		this.airplane = airplane;
 	}
-	public int getDistance() {
+	public Float getDistance() {
 		return distance;
 	}
-	public void setDistance(int distance) {
+	public void setDistance(Float distance) {
 		this.distance = distance;
 	}
 	public Airport getAirportOrigin() {

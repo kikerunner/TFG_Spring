@@ -41,8 +41,6 @@ public class RepositoryAirport {
 			throw new RuntimeException(e);
 		}
 	}
-
-	
 	
 	public List<Airport> sellectAllAirportsByCountry(int idCountry) {
 		List<Airport> listAirports = new ArrayList<Airport>();
@@ -50,13 +48,13 @@ public class RepositoryAirport {
 		PreparedStatement prepareStatement = null;
 		ResultSet resultSet = null;
 		try {
-			prepareStatement = conn.prepareStatement("SELECT A.AirportName from TFG.Airports AS A, TFG.Cities AS C, TFG.Countries AS D WHERE A.Id_City = C.idCity AND C.id_Country = D.idCountries;");
+			prepareStatement = conn.prepareStatement("SELECT A.idAirport ,A.AirportName from TFG.Airports AS A, TFG.Cities AS C, TFG.Countries AS D WHERE A.Id_City = C.idCity AND C.id_Country = D.idCountries AND D.idCountries = (?);");
 			prepareStatement.setInt(1, idCountry);
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
 				Airport airportInDatabase = new Airport();
-				airportInDatabase.set(resultSet.getInt(1));
-				airportInDatabase.setCityName(resultSet.getString(2));
+				airportInDatabase.setIdairport(resultSet.getInt(1));
+				airportInDatabase.setAirportName(resultSet.getString(2));
 				listAirports.add(airportInDatabase);
 			}
 			

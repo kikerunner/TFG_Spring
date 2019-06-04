@@ -36,4 +36,8 @@ public class FoodAndDrinkService {
 	public void addFoodAndDrink(FoodAndDrink foodAndDrink) {
 		repoFoodAndDrink.insertFoodAndDrink(foodAndDrink);
 	}
+	
+	public List<FoodAndDrink> selectFoodAndDrink() {
+		return repoFoodAndDrink.sellectAllFoodAndDrink();
+	}
 }

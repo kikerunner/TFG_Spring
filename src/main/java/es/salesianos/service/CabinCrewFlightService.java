@@ -20,6 +20,12 @@ public class CabinCrewFlightService {
 	@Qualifier("repositoryCabinCrewFlight")
 	private RepositoryCabinCrewFlight repositoryCabinCrewFlight;
 
+	public List<CabinCrewFlight> selectAllCabinCrewFlihgt4() {
+		return repositoryCabinCrewFlight.sellectAllACabinCrewFlight4Workers();
+	}
+	public List<CabinCrewFlight> selectAllCabinCrewFlihgt6() {
+		return repositoryCabinCrewFlight.sellectAllACabinCrewFlight6Workers();
+	}
 	public void addCabinCrewFlight4A(CabinCrewFlight cabinCrewFlight) {
 		repositoryCabinCrewFlight.insertCabinCrewFlight4A(cabinCrewFlight);
 	}

@@ -28,6 +28,10 @@ public class AirplaneService {
 		System.out.println("En service:" + airplane.getFlightHours());
 	}
 	
+	public Airplane selectingAirplaneByID(int idAirplane) {
+		return repositoryAirplane.selectAirplaneByID(idAirplane);
+	}
+	
 	public List<Airplane> listAllAirplanes() {
 		return repositoryAirplane.sellectAllAirplanes();
 	}
