@@ -36,6 +36,7 @@ import es.salesianos.service.AirportService;
 import es.salesianos.service.CabinCrewFlightService;
 import es.salesianos.service.CityService;
 import es.salesianos.service.CountryService;
+import es.salesianos.service.FlightService;
 import es.salesianos.service.FoodAndDrinkService;
 import es.salesianos.service.NationalityService;
 import es.salesianos.service.PassengerService;
@@ -158,6 +159,10 @@ public class Controlador {
 	@Autowired 
 	@Qualifier("airportService")
 	AirportService airportService;
+	
+	@Autowired 
+	@Qualifier("flightService")
+	FlightService flightService;
 	
 	
 	@GetMapping(path = "/LoadAirplanesList")
@@ -429,6 +434,7 @@ public class Controlador {
 	@GetMapping(path="/selectingCabinCrewFlight")
 	public ModelAndView getAddFlightPage(Flight flight) {
 		airplaneFilter = airplaneservice.selectingAirplaneByID(flight.getIdAirplane());
+		flight.setAvailableSeats(airplaneFilter.getSeatsNumber());
 		if(airplaneFilter.getWorkersNumber() == 4) {
 			ModelAndView model = new ModelAndView("selectingCabinCrewFlight4Workers");
 			cabinCrewFlightWorkersList = cabinCrewFlightService.selectAllCabinCrewFlihgt4();
@@ -444,6 +450,18 @@ public class Controlador {
 			model.addObject("CabinCrewFlightWorkersList", cabinCrewFlightWorkersList);
 			return model;
 		}
-		
+	}
+	
+	@GetMapping(path="/addFlightDef")
+	public ModelAndView getAnadir(Flight flight) {
+		ModelAndView model = new ModelAndView("addFlightDef");
+		model.addObject("Flight",new Flight());
+		model.addObject("flight", flight);
+		return model;
+	}
+	@PostMapping(path="/addFlightDef")
+	public String savePassenger(Flight flight)  {
+		flightService.addFlight(flight);
+		return "index";
 	}
 }
