@@ -22,20 +22,24 @@ public class WorkerService {
 		return repositoryWorker;
 	}
 	
+	public Worker selectAtLogIn(int idWorker) {
+		return repositoryWorker.selectWorkerByID(idWorker);
+	}
+	
 	public List<Worker> listAllPilots(int idRole) {
-		return repositoryWorker.sellectWorkersById(idRole);
+		return repositoryWorker.selectWorkersByIdRole(idRole);
 	}
 	
 	public List<Worker> listAllCoPilots(int idRole) {
-		return repositoryWorker.sellectWorkersById(idRole);
+		return repositoryWorker.selectWorkersByIdRole(idRole);
 	}
 	
 	public List<Worker> listAllChiefCrewMembers(int idRole) {
-		return repositoryWorker.sellectWorkersById(idRole);
+		return repositoryWorker.selectWorkersByIdRole(idRole);
 	}
 	
 	public List<Worker> listAllFlightAttendants(int idRole) {
-		return repositoryWorker.sellectWorkersById(idRole);
+		return repositoryWorker.selectWorkersByIdRole(idRole);
 	}
 
 	public void setRepositoryWorker(RepositoryWorker repositoryWorker) {

@@ -65,7 +65,7 @@ public class RepositoryWorker {
 		}
 		manager.close(conn);
 	}
-	public List<Worker> sellectWorkersById(int idRole) {
+	public List<Worker> selectWorkersByIdRole(int idRole) {
 		List<Worker> listPilots = new ArrayList<Worker>();
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement prepareStatement = null;
@@ -91,5 +91,31 @@ public class RepositoryWorker {
 		}
 		manager.close(conn);
 		return listPilots;
+	}
+	
+	public Worker selectWorkerByID(int idWorker) {
+		Worker workerRescuedInDatabase = new Worker();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT idWorker, name, surname, Id_Role FROM Workers WHERE IdWorker = (?)");
+			prepareStatement.setInt(1, idWorker);
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				workerRescuedInDatabase.setIdworker(resultSet.getInt(1));
+				workerRescuedInDatabase.setName(resultSet.getString(2));
+				workerRescuedInDatabase.setSurname(resultSet.getString(3));
+				workerRescuedInDatabase.setIdRole(resultSet.getInt(4));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return workerRescuedInDatabase;
 	}
 }

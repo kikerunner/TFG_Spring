@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.salesianos.model.Airplane;
@@ -44,6 +46,7 @@ import es.salesianos.service.RoleService;
 import es.salesianos.service.WorkerService;
 
 @Controller
+@SessionAttributes("workerInSession")
 public class Controlador {
 	
 	@Autowired 
@@ -113,6 +116,9 @@ public class Controlador {
 	Airplane airplaneFilter;
 	
 	@Autowired 
+	Worker workerLoad;
+	
+	@Autowired 
 	@Qualifier("countryService")
 	CountryService countryService;
 	
@@ -164,7 +170,26 @@ public class Controlador {
 	@Qualifier("flightService")
 	FlightService flightService;
 	
-	
+	@GetMapping(path = "/login")
+	public ModelAndView indexPage() {
+		ModelAndView model = new ModelAndView("login");
+		model.addObject("worker", new Worker());
+		return model;
+	}
+	@PostMapping(path="/login")
+	public ModelAndView startLogginSession(Worker worker)  {	
+		workerLoad = workerService.selectAtLogIn(worker.getIdworker());
+		System.out.println(workerLoad.getIdRole());
+		if (workerLoad.getIdRole() == 5) {
+			ModelAndView model = new ModelAndView("administrationMenu");
+			model.addObject("workerInSession", workerLoad);
+			return model;
+		}else {
+			ModelAndView model = new ModelAndView("workerMenu");
+			model.addObject("workerInSession", workerLoad);
+			return model;
+		}
+	}
 	@GetMapping(path = "/LoadAirplanesList")
 	public ModelAndView loadAirplaneList() {
 		listAllAirplanes = airplaneservice.listAllAirplanesAndModels();

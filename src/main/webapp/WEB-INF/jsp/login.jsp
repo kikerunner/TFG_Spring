@@ -15,23 +15,16 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
 <body>
-		<h1>${workerInSession.getIdRole()}</h1>
-<table border="1" class="table">
-	<thead>
-		<tr>
-			<td>Airplane Company</td>
-			<td>Choose Airplane Brand</td>
-		</tr>
-	</thead>
-	<tbody>
-		<c:forEach var="item" items="${AirplaneBrandNameList}">
-			<tr>
-				<td><c:out value="${item.getAirplaneBrandName()}"/> </td>
-				<td><a href="/addAirplane?cod=${item.getIdairplaneBrandName()}">Asociate</a></td>
-	    	</tr>
-		</c:forEach>
-	</tbody>
-</table>
+<div class="form-group col-md-offset-3">
+	<form:form action="/login" method="post" modelAttribute="worker"  class="form-inlin justify-content-center">
+		<label>Id User:</label>
+		<form:input type="number" name="idworker" path="idworker" class="form-control" width="250px"/> 
+		<label>Airplane Name:</label>
+		<form:input type="password" name="password" path="password" class="form-control" width="250px"/> 
+		
+		<input type="submit" class="btn btn-primary" >
+	</form:form>
+</div>
 	<script src="js/bootstrap.min.js"></script> 
 </body>
 </html>

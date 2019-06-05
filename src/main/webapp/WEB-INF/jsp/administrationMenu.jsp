@@ -13,7 +13,7 @@
 <div class="container">
 	<h1 align="center">Enrique Airlines</h1>
 	<div>
-		<a href="/login">INICIAR SESIÓN</a>
+		<h1>${workerInSession.getIdRole()}</h1>
 	</div>
 	<div>
 		<a href="/selectingAirplane">Add an Airplane</a>
