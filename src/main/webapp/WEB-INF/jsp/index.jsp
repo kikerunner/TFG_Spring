@@ -12,29 +12,8 @@
 <body>
 <div class="container">
 	<h1 align="center">Enrique Airlines</h1>
-	<div>
+	<div align="center">
 		<a href="/login">INICIAR SESIÓN</a>
-	</div>
-	<div>
-		<a href="/selectingAirplane">Add an Airplane</a>
-	</div>
-	<div>
-		<a href="/selectingCountry">Add a Worker</a>
-	</div>
-	<div>
-		<a href="/addFoodAndDrink">Add Food and Drink</a>
-	</div>
-	<div>
-		<a href="/LoadAirplanesList">Airplanes List</a>
-	</div>
-	<div>
-		<a href="/addCabinCrewFlight">Adding Cabin Crew Flight</a>
-	</div>
-	<div>
-		<a href="/addPassenger">Adding a passenger</a>
-	</div>
-	<div>
-		<a href="/selectingOriginCountry">Adding a flight</a>
 	</div>
 </div>
 <script src="js/bootstrap.min.js"></script>  

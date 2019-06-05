@@ -14,17 +14,18 @@
 <title>Insert New Airplane</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
-<body>
-<div class="form-group col-md-offset-3">
-	<form:form action="/login" method="post" modelAttribute="worker"  class="form-inlin justify-content-center">
+<body class="text-center">
+	<div  align="center">
+	<form:form action="/login" method="post" modelAttribute="worker" class="form-signin col-md-4">
+		<img class="mb-4" src="https://upload.wikimedia.org/wikipedia/en/thumb/5/51/Oceanic.svg/220px-Oceanic.svg.png" alt="" width="150" height="150"><br>
 		<label>Id User:</label>
-		<form:input type="number" name="idworker" path="idworker" class="form-control" width="250px"/> 
+		<form:input type="number" name="idworker" path="idworker" class="form-control"/> 
 		<label>Airplane Name:</label>
-		<form:input type="password" name="password" path="password" class="form-control" width="250px"/> 
+		<form:input type="password" name="password" path="password" class="form-control"/> 
 		
 		<input type="submit" class="btn btn-primary" >
 	</form:form>
-</div>
+	</div>
 	<script src="js/bootstrap.min.js"></script> 
 </body>
 </html>
