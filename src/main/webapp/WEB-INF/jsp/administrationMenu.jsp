@@ -14,10 +14,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<h1>${workerInSession.getIdRole()}</h1>
+	<font face="courier"> <br><h4>Hello, ${workerInSession.getName()} ${workerInSession.getSurname()}</h4></font>
+	<a href="/login" class="btn btn-dark">Close Session</a>
 		</div>
+		
 		<div class="col">
-			<img class="mb-4" src="https://vignette.wikia.nocookie.net/lostpedia/images/3/37/Oceanic_logo.gif/revision/latest?cb=20070916213045&path-prefix=es" alt="" width="150" height="75">
+			<img class="mb-4" src="https://vignette.wikia.nocookie.net/lostpedia/images/3/37/Oceanic_logo.gif/revision/latest?cb=20070916213045&path-prefix=es" alt="" height="125">
 		</div>
 	</div>
 </div>               
@@ -30,17 +32,17 @@
 	  	<div class="card-body">
 	  		  <h5 class="card-title">Add an Airplane</h5>
 	   		<p class="card-text">Introduce new airplanes</p>
-	    <a href="/selectingAirplane" class="btn btn-primary">Add</a>
+	    <a href="/selectingAirplane" class="btn btn-dark">Add</a>
 	  	</div>
 	</div>
 	</div>
 	<div class="col" align="center">
 	<div class="card" style="width: 18rem;">
-	  	<img class="card-img-top" width="286" height="180" src="https://us-east.manta.joyent.com/condenast/public/cnt-services/production/2015/11/06/563cde756f74facb3e9d9290_Fashion-Uniforms-china-eastern.jpg">
+	  	<img class="card-img-top" width="286" height="180" src="https://www.flyedelweiss.com/SiteCollectionImages/Press-Photos/Edelweiss_CabinCrew.jpg?RenditionId=22">
 	  	<div class="card-body">
 	  		  <h5 class="card-title">Add a Worker</h5>
 	   		<p class="card-text">Introduce new Workers</p>
-	    <a href="/selectingCountry" class="btn btn-primary">Add</a>
+	    <a href="/selectingCountry" class="btn btn-dark">Add</a>
 	  	</div>
 	</div>
 	</div>
@@ -50,29 +52,56 @@
 	  	<div class="card-body">
 	  		  <h5 class="card-title">Add Menus</h5>
 	   		<p class="card-text">Introduce new Menus</p>
-	    <a href="/selectingCountry" class="btn btn-primary">Add</a>
+	    <a href="/addFoodAndDrink" class="btn btn-dark">Add</a>
 	  	</div>
 	</div>
 	</div>
 </div>
-	<div>
-		<a href="/selectingCountry">Add a Worker</a>
+
+<div class="row">
+	<div class="col" align="center">
+	<div class="card" style="width: 18rem;">
+	  	<img class="card-img-top" width="286" height="180" src="https://www.aerosieger.de/images/news_picupload/pic_sid7146-0-norm.jpg" alt="Card image cap">
+	  	<div class="card-body">
+	  		  <h5 class="card-title">List of airplanes</h5>
+	   		<p class="card-text">Show all the airplanes</p>
+	    <a href="/LoadAirplanesList" class="btn btn-dark">Add</a>
+	  	</div>
 	</div>
-	<div>
-		<a href="/addFoodAndDrink">Add Food and Drink</a>
 	</div>
-	<div>
-		<a href="/LoadAirplanesList">Airplanes List</a>
+	<div class="col" align="center">
+	<div class="card" style="width: 18rem;">
+	  	<img class="card-img-top" width="286" height="180" src="https://eodgoxn58m-flywheel.netdna-ssl.com/wp-content/uploads/2016/07/267784_288348997933099_337766240_n.jpg">
+	  	<div class="card-body">
+	  		  <h5 class="card-title">Add Cabin Crew Flight</h5>
+	   		<p class="card-text">Create groups of work</p>
+	    <a href="/addCabinCrewFlight" class="btn btn-dark">Add</a>
+	  	</div>
 	</div>
-	<div>
-		<a href="/addCabinCrewFlight">Adding Cabin Crew Flight</a>
 	</div>
-	<div>
-		<a href="/addPassenger">Adding a passenger</a>
+	<div class="col" align="center">
+	<div class="card" style="width: 18rem;">
+	  	<img class="card-img-top" width="286" height="180" src="https://amp.insider.com/images/5981e5ba232dfa2d008b48ac-750-563.jpg">
+	  	<div class="card-body">
+	  		  <h5 class="card-title">Add a new Passenger</h5>
+	   		<p class="card-text">Create a Passenger</p>
+	    <a href="/addPassenger" class="btn btn-dark">Add</a>
+	  	</div>
 	</div>
-	<div>
-		<a href="/selectingOriginCountry">Adding a flight</a>
 	</div>
+</div>
+<div class="row">
+	<div class="col" align="center">
+	<div class="card" style="width: 18rem;">
+	  	<img class="card-img-top" width="286" height="180" src="https://ih0.redbubble.net/image.10770212.3748/flat,550x550,075,f.jpg" alt="Card image cap">
+	  	<div class="card-body">
+	  		  <h5 class="card-title">Add a Flight</h5>
+	   		<p class="card-text">Select Airplane, Workers, destination...</p>
+	    <a href="/selectingOriginCountry" class="btn btn-dark">Add</a>
+	  	</div>
+	</div>
+	</div>
+</div>
 </div>
 <script src="js/bootstrap.min.js"></script>  
 </body>
