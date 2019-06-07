@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col">
 	<font face="courier"> <br><h4>Hello, ${workerInSession.getName()} ${workerInSession.getSurname()}</h4></font>
-	<a href="/login" class="btn btn-dark">Close Session</a>
+	<a href="/login" class="btn btn-secondary">Close Session</a>
 		</div>
 		
 		<div class="col">

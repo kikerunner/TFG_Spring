@@ -99,7 +99,7 @@ public class RepositoryWorker {
 		PreparedStatement prepareStatement = null;
 		ResultSet resultSet = null;
 		try {
-			prepareStatement = conn.prepareStatement("SELECT idWorker, name, surname, Id_Role FROM Workers WHERE IdWorker = (?)");
+			prepareStatement = conn.prepareStatement("SELECT idWorker, name, surname, Id_Role, password FROM Workers WHERE IdWorker = (?)");
 			prepareStatement.setInt(1, idWorker);
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
@@ -107,6 +107,7 @@ public class RepositoryWorker {
 				workerRescuedInDatabase.setName(resultSet.getString(2));
 				workerRescuedInDatabase.setSurname(resultSet.getString(3));
 				workerRescuedInDatabase.setIdRole(resultSet.getInt(4));
+				workerRescuedInDatabase.setPassword(resultSet.getString(5));
 			}
 			
 		} catch (SQLException e) {
