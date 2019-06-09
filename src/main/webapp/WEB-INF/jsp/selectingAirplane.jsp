@@ -28,7 +28,7 @@
 	</div>
 </div>   
 <div>
-<table border="1" class="table table-striped" style="margin: 0 auto;width: 50%" >
+<table class="table table-striped" style="margin: 0 auto;width: 50%" >
 	<thead>
 		<tr>
 			<td>Airplane Company</td>

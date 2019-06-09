@@ -15,8 +15,20 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
 <body>
-<div class="form-group col-md-offset-3">
-	<form:form action="/selectingCabinCrewFlight" method="get" modelAttribute="Flight"  class="form-inlin justify-content-center">
+<div class="container">
+	<div class="row">
+		<div class="col">
+	<font face="courier"> <br><h4>Hello, ${workerInSession.getName()} ${workerInSession.getSurname()}</h4></font>
+	<a href="/login" class="btn btn-secondary">Close Session</a>
+		</div>
+		
+		<div class="col">
+			<img class="mb-4" src="https://vignette.wikia.nocookie.net/lostpedia/images/3/37/Oceanic_logo.gif/revision/latest?cb=20070916213045&path-prefix=es" alt="" height="125">
+		</div>
+	</div>
+</div> 
+<div align="center">
+	<form:form action="/selectingCabinCrewFlight" method="get" modelAttribute="Flight"  class="form-signin col-md-4">
 		<label>Flight Name:</label>
 		<form:input type="text" name="flightName" path="flightName" class="form-control" width="250px"/> 
 		<label>Airplane:</label>

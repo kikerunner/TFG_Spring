@@ -15,9 +15,21 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
 <body>
+<div class="container">
+	<div class="row">
+		<div class="col">
+	<font face="courier"> <br><h4>Hello, ${workerInSession.getName()} ${workerInSession.getSurname()}</h4></font>
+	<a href="/login" class="btn btn-secondary">Close Session</a>
+		</div>
+		
+		<div class="col">
+			<img class="mb-4" src="https://vignette.wikia.nocookie.net/lostpedia/images/3/37/Oceanic_logo.gif/revision/latest?cb=20070916213045&path-prefix=es" alt="" height="125">
+		</div>
+	</div>
+</div> 
 <div align="center"><h1>Selecting Cabin Crew Flight 4</h1></div>
 <div class="form-group col-md-offset-3">
-	<form:form action="/addFlight" method="post" modelAttribute="Flight"  class="form-inlin justify-content-center">
+	<form:form action="/addFlightDef" method="get" modelAttribute="Flight"  class="form-inlin justify-content-center">
 		<form:input type="text"  value="${flight.flightName}" style="display:none" name="flightName" path="flightName" class="form-control" width="250px"/> 
 		<form:input type="Number"  value="${flight.idAirplane}" style="display:none" name="idAirplane" path="idAirplane" class="form-control" width="250px"/> 
 		<form:input type="float"  value="${flight.distance}" style="display:none" name="distance" path="distance" class="form-control" width="250px"/> 
@@ -29,7 +41,7 @@
 		<form:input type="number"  value="${flight.idFoodAndDrink}" style="display:none" name="idFoodAndDrink" path="idFoodAndDrink" class="form-control" width="250px"/> 
 
 	<div class="table-responsive">
-	<table class="table">
+	<table  class="table table-striped" style="margin: 0 auto;width: 50%">
 		<thead>
 			<tr>
 				<th scope="col">#</th>
@@ -58,7 +70,7 @@
 			
 				<td><c:out value="${cabinCrewFlight.getIdPilot()}" />, <c:out value="${cabinCrewFlight.getPilotName()}" /> <c:out value="${cabinCrewFlight.getPilotSurname()}" /></td>
 				
-				<td><c:out value="${cabinCrewFlight.getIdCoPilot()}" />, <c:out value="${cabinCrewFlight.getCoPilotName()}" /> <c:out value="${cabinCrewFlight.getCoPilotSurname()}" /><</td>
+				<td><c:out value="${cabinCrewFlight.getIdCoPilot()}" />, <c:out value="${cabinCrewFlight.getCoPilotName()}" /> <c:out value="${cabinCrewFlight.getCoPilotSurname()}" /></td>
 			
 				<td><c:out value="${cabinCrewFlight.getIdChiefCrewMember()}" />, <c:out value="${cabinCrewFlight.getChiefCrewMemberName()}" /> <c:out value="${cabinCrewFlight.getChiefCrewSurname()}" /></td>
 			
@@ -70,7 +82,7 @@
 				
 				<td><c:out value="${cabinCrewFlight.getIdFlightAttendant4()}" />, <c:out value="${cabinCrewFlight.getFlightAttendant4Name()}" /> <c:out value="${cabinCrewFlight.getFlightAttendant4Surname()}" /></td>
 			
-				<td><form:button><a href="/addFlightDef?idCabinCrewFlight=${cabinCrewFlight.getIdcabinCrewFlight()}&flightName=${flight.flightName}&idAirplane=${flight.idAirplane}&distance=${flight.distance}&idAirportOrigin=${flight.idAirportOrigin}&idAirportDestiny=${flight.idAirportDestiny}&beginDate=${flight.beginDate}&endDate=${flight.endDate}&idFoodAndDrink=${flight.idFoodAndDrink}&availableSeats=${flight.availableSeats}">Asociate</a></form:button></td>
+				<td><a href="/addFlightDef?idCabinCrewFlight=${cabinCrewFlight.getIdcabinCrewFlight()}&flightName=${flight.flightName}&idAirplane=${flight.idAirplane}&distance=${flight.distance}&idAirportOrigin=${flight.idAirportOrigin}&idAirportDestiny=${flight.idAirportDestiny}&beginDate=${flight.beginDate}&endDate=${flight.endDate}&idFoodAndDrink=${flight.idFoodAndDrink}&availableSeats=${flight.availableSeats}">Asociate</a></td>
 			
 			</tr>
 			</c:forEach>

@@ -478,6 +478,7 @@ public class Controlador {
 	@GetMapping(path="/addFlightDef")
 	public ModelAndView getAnadir(Flight flight) {
 		ModelAndView model = new ModelAndView("addFlightDef");
+		System.out.println(flight.getIdCabinCrewFlight());
 		model.addObject("Flight",new Flight());
 		model.addObject("flight", flight);
 		return model;
