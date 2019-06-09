@@ -8,8 +8,15 @@ public class Airport {
 	private String airportName;
 	private City city;
 	private String iata;
+	private int idCity;
 	private String icao;
 	
+	public int getIdCity() {
+		return idCity;
+	}
+	public void setIdCity(int idCity) {
+		this.idCity = idCity;
+	}
 	public int getIdairport() {
 		return idairport;
 	}

@@ -69,4 +69,37 @@ public class RepositoryFlight {
 		}
 		manager.close(conn);
 	}
+	public List<Flight> sellectAllFlights() {
+		List<Flight> listflights = new ArrayList<Flight>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT F.idFlights, F.FlightName, A.AirplaneName, F.Distance, F.AvailableSeats, AA.AirportName, AB.AirportName, F.BeginDate, F.EndDate, FAD.Name, F.id_CabinCrewFlight FROM TFG.Flights AS F, TFG.Airplanes AS A, TFG.Airports AS AA, TFG.Airports AS AB, TFG.FoodAndDrinks AS FAD WHERE (F.Id_Airplane = A.idAirplane) AND (F.Origin = AA.idAirport) AND (F.Destiny = AB.idAirport) AND (F.id_FoodDrink = FAD.idFoodAndDrinks);");
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Flight flightInDatabase = new Flight();
+				flightInDatabase.setIdflight(resultSet.getInt(1));
+				flightInDatabase.setFlightName(resultSet.getString(2));
+				flightInDatabase.setAirplaneName(resultSet.getString(3));
+				flightInDatabase.setDistance(resultSet.getFloat(4));
+				flightInDatabase.setAvailableSeats(resultSet.getInt(5));
+				flightInDatabase.setAirportOriginName(resultSet.getString(6));
+				flightInDatabase.setAirportDestinyName(resultSet.getString(7));
+				flightInDatabase.setBeginDate(resultSet.getDate(8));
+				flightInDatabase.setEndDate(resultSet.getDate(9));
+				flightInDatabase.setFoodAndDrinkName(resultSet.getString(10));
+				flightInDatabase.setIdCabinCrewFlight(resultSet.getInt(11));
+				listflights.add(flightInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return listflights;
+	}
 }

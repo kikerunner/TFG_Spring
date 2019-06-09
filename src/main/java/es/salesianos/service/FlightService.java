@@ -23,4 +23,8 @@ public class FlightService {
 	public void addFlight(Flight flight){
 		repositoryFlight.insertFlight(flight);
 	}
+	
+	public List<Flight> listFlights(){
+		return repositoryFlight.sellectAllFlights();
+	}
 }

@@ -10,6 +10,9 @@ public class Worker {
 	private String surname;
 	private String photo;
 	private String address;
+	private String cityName;
+	private String nationalityName;
+	private String roleName;
 	private City city;
 	private Nationality nationality;
 	private String password;
@@ -18,6 +21,26 @@ public class Worker {
 	private int idNationality;
 	private int idRole;
 	
+	
+	
+	public String getCityName() {
+		return cityName;
+	}
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
+	}
+	public String getNationalityName() {
+		return nationalityName;
+	}
+	public void setNationalityName(String nationalityName) {
+		this.nationalityName = nationalityName;
+	}
+	public String getRoleName() {
+		return roleName;
+	}
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
 	public int getIdCity() {
 		return idCity;
 	}

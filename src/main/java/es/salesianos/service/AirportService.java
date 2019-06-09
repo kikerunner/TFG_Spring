@@ -27,6 +27,10 @@ public class AirportService {
 	public void setRepositoryAirport(RepositoryAirport repositoryAirport) {
 		this.repositoryAirport = repositoryAirport;
 	}
+	
+	public List<Airport> listAllAirportsAndCities() {
+		return repositoryAirport.selectAllAirportsAndCities();
+	}
 
 	public List<Airport> listAllOriginAirportsByIdCountry(int idOriginCountry) {
 		int idCountry = idOriginCountry;

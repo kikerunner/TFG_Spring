@@ -12,6 +12,10 @@ public class Flight {
 	private String flightName;
 	private Airplane airplane;
 	private int idAirplane;
+	private String airplaneName;
+	private String airportOriginName;
+	private String airportDestinyName;
+	private String foodAndDrinkName;
 	private Float distance;
 	private Airport airportOrigin;
 	private int idAirportOrigin;
@@ -25,7 +29,30 @@ public class Flight {
 	private CabinCrewFlight cabincrewflight;
 	private int idCabinCrewFlight;
 	
-	
+	public String getAirplaneName() {
+		return airplaneName;
+	}
+	public void setAirplaneName(String airplaneName) {
+		this.airplaneName = airplaneName;
+	}
+	public String getAirportOriginName() {
+		return airportOriginName;
+	}
+	public void setAirportOriginName(String airportOriginName) {
+		this.airportOriginName = airportOriginName;
+	}
+	public String getAirportDestinyName() {
+		return airportDestinyName;
+	}
+	public void setAirportDestinyName(String airportDestinyName) {
+		this.airportDestinyName = airportDestinyName;
+	}
+	public String getFoodAndDrinkName() {
+		return foodAndDrinkName;
+	}
+	public void setFoodAndDrinkName(String foodAndDrinkName) {
+		this.foodAndDrinkName = foodAndDrinkName;
+	}
 	public int getIdAirplane() {
 		return idAirplane;
 	}

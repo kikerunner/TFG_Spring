@@ -22,6 +22,10 @@ public class WorkerService {
 		return repositoryWorker;
 	}
 	
+	public List<Worker> selectAllWorkers() {
+		return repositoryWorker.selectWorkers();
+	}
+	
 	public Worker selectAtLogIn(int idWorker) {
 		return repositoryWorker.selectWorkerByID(idWorker);
 	}
