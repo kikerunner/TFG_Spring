@@ -15,8 +15,20 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
 <body>
-		<h1>${workerInSession.getIdRole()}</h1>
-<table border="1" class="table">
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+	<font face="courier"> <br><h4>Hello, ${workerInSession.getName()} ${workerInSession.getSurname()}</h4></font>
+	<a href="/login" class="btn btn-secondary">Close Session</a>
+		</div>
+		<div class="col">
+			<img class="mb-4" src="https://vignette.wikia.nocookie.net/lostpedia/images/3/37/Oceanic_logo.gif/revision/latest?cb=20070916213045&path-prefix=es" alt="" height="125">
+		</div>
+	</div>
+</div>   
+<div>
+<table border="1" class="table table-striped" style="margin: 0 auto;width: 50%" >
 	<thead>
 		<tr>
 			<td>Airplane Company</td>
@@ -32,6 +44,7 @@
 		</c:forEach>
 	</tbody>
 </table>
+</div>
 	<script src="js/bootstrap.min.js"></script> 
 </body>
 </html>

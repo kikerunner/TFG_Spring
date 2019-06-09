@@ -1,17 +1,10 @@
 package es.salesianos.controller.rest;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -205,7 +198,7 @@ public class Controlador {
 	@PostMapping(path="/addAirplane")
 	public String saveAirplane(Airplane airplane)  {
 		airplaneservice.addAirplane(airplane);
-		return "index";
+		return "administrationMenu";
 	}
 	@GetMapping(path="/addAirplane")
 	public ModelAndView getAddAirplanePage(@RequestParam int cod) {
@@ -251,12 +244,12 @@ public class Controlador {
 	@PostMapping(path="/addFoodAndDrink")
 	public String saveWorker(FoodAndDrink foodAndDrink)  {
 		foodAndDrinkService.addFoodAndDrink(foodAndDrink);
-		return "index";
+		return "administrationMenu";
 	}
 	@PostMapping(path="/addWorker")
 	public String saveWorker(Worker worker)  {
 		workerService.addWorker(worker);
-		return "index";
+		return "administrationMenu";
 	}
 	@GetMapping(path="/addCabinCrewFlight")
 	public ModelAndView getAddCabinCrewFlightPage() {
@@ -361,7 +354,7 @@ public class Controlador {
 	@PostMapping(path="/addCCF4A")
 	public String saveCabinCrewFlight4Attendants(CabinCrewFlight cabincrewflight)  {
 		cabinCrewFlightService.addCabinCrewFlight4A(cabincrewflight);;
-		return "index";
+		return "administrationMenu";
 	}
 	@GetMapping(path="/fa5")
 	public ModelAndView getFlightAttendant5(CabinCrewFlight cabincrewFlight) {
@@ -415,7 +408,7 @@ public class Controlador {
 	@PostMapping(path="/addCCF6A")
 	public String saveCabinCrewFlight6Attendants(CabinCrewFlight cabincrewflight)  {
 		cabinCrewFlightService.addCabinCrewFlight6A(cabincrewflight);;
-		return "index";
+		return "administrationMenu";
 	}
 	@GetMapping(path="/addPassenger")
 	public ModelAndView getPassengerPage() {
@@ -492,6 +485,6 @@ public class Controlador {
 	@PostMapping(path="/addFlightDef")
 	public String savePassenger(Flight flight)  {
 		flightService.addFlight(flight);
-		return "index";
+		return "administrationMenu";
 	}
 }

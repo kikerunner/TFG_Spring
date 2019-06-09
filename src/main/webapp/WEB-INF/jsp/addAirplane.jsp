@@ -14,9 +14,22 @@
 <title>Insert New Airplane</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
-<body>
-<div class="form-group col-md-offset-3">
-	<form:form action="/addAirplane" method="post" modelAttribute="airplane"  class="form-inlin justify-content-center">
+<body class="text-center">
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+	<font face="courier"> <br><h4>Hello, ${workerInSession.getName()} ${workerInSession.getSurname()}</h4></font>
+	<a href="/login" class="btn btn-secondary">Close Session</a>
+		</div>
+		
+		<div class="col">
+			<img class="mb-4" src="https://vignette.wikia.nocookie.net/lostpedia/images/3/37/Oceanic_logo.gif/revision/latest?cb=20070916213045&path-prefix=es" alt="" height="125">
+		</div>
+	</div>
+</div>   
+<div align="center">
+	<form:form action="/addAirplane" method="post" modelAttribute="airplane"  class="form-signin col-md-4">
 		<label>Airplane Name:</label>
 		<form:input type="text" name="AirplaneName" path="AirplaneName" class="form-control" width="250px"/> 
 		<label>Model:</label>
