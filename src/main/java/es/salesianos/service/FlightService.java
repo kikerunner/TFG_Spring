@@ -27,4 +27,18 @@ public class FlightService {
 	public List<Flight> listFlights(){
 		return repositoryFlight.sellectAllFlights();
 	}
+	
+	public List<Flight> listFlightsById(int id){
+		return repositoryFlight.sellectAllFlightsById(id);
+	}
+	
+	public List<Flight> listFlightsByAirplaneName(String airplane){
+		return repositoryFlight.sellectAllFlightsByAirplane(airplane);
+	}
+	public List<Flight> listFlightsByAirportDestiny(String airportDestiny){
+		return repositoryFlight.sellectAllFlightsByAirportDestiny(airportDestiny);
+	}
+	public List<Flight> listFlightsByAirportOrigin(String airportOrigin){
+		return repositoryFlight.sellectAllFlightsByAirportOrigin(airportOrigin);
+	}
 }

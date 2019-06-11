@@ -26,6 +26,24 @@
 			<img class="mb-4" src="https://vignette.wikia.nocookie.net/lostpedia/images/3/37/Oceanic_logo.gif/revision/latest?cb=20070916213045&path-prefix=es" alt="" height="125">
 		</div>
 	</div>
+</div>
+<div align="center">
+<form action="/LoadWorkersListById" method="post" >
+	<div><span>Buscador por Id</div> <input type="number" name="id"/> </span>
+	<input type="submit" class="btn btn-secondary" value="Filter">
+</form>
+<form action="/LoadWorkersListByName" method="post" >
+	<div><span>Buscador por Name </div><input type="text" name="name"/> </span>
+	<input type="submit" class="btn btn-secondary" value="Filter">
+</form>
+<form action="/LoadWorkersListBySurname" method="post" >
+	<div><span>Buscador por SurName</div> <input type="text" name="surname"/> </span>
+	<input type="submit" class="btn btn-secondary" value="Filter">
+</form>
+<form action="/LoadWorkersListByPassport" method="post" >
+	<div><span>Buscador por Passport</div> <input type="text" name="passport"/> </span>
+	<input type="submit" class="btn btn-secondary" value="Filter">
+</form>
 </div>   
 <div class="container">
 <table class="table table-striped" style="margin: 0 auto;width: 80%" >

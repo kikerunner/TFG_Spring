@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">  
 </head>
 <body>
-
 <div class="container">
 	<div class="row">
 		<div class="col">
@@ -27,6 +26,21 @@
 		</div>
 	</div>
 </div>   
+<div align="center">
+<form action="/airportSearcher" method="post" >
+	<div><span>Buscador por nombre</div> <input type="text" name="airportName"/> </span>
+	<input type="submit" class="btn btn-secondary" value="Filter">
+</form>
+<form action="/airportSearcherIata" method="post" >
+	
+	<div><span>Buscador por IATA </div><input type="text" name="iATA"/> </span>
+	<input type="submit" class="btn btn-secondary" value="Filter">
+</form>
+<form action="/airportSearcherIcao" method="post" >
+	<div><span>Buscador por ICAO</div> <input type="text" name="iCAO"/> </span>
+	<input type="submit" class="btn btn-secondary" value="Filter">
+</form>
+</div>
 <div class="container">
 <table class="table table-striped" style="margin: 0 auto;width: 80%" >
 	<thead>

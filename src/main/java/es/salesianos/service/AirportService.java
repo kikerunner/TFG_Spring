@@ -32,6 +32,18 @@ public class AirportService {
 		return repositoryAirport.selectAllAirportsAndCities();
 	}
 
+	public List<Airport> listAllAirportsAndCitiesByName(String aiportName) {
+		return repositoryAirport.selectAllAirportsAndCitiesByName(aiportName);
+	}
+	
+	public List<Airport> listAllAirportsAndCitiesByIata(String iATA) {
+		return repositoryAirport.selectAllAirportsAndCitiesByIata(iATA);
+	}
+	
+	public List<Airport> listAllAirportsAndCitiesByIcao(String iCAO) {
+		return repositoryAirport.selectAllAirportsAndCitiesByIcao(iCAO);
+	}
+
 	public List<Airport> listAllOriginAirportsByIdCountry(int idOriginCountry) {
 		int idCountry = idOriginCountry;
 		return repositoryAirport.sellectAllAirportsByCountry(idCountry);

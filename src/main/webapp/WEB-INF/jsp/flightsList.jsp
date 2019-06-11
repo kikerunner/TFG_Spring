@@ -27,6 +27,24 @@
 		</div>
 	</div>
 </div>   
+<div align="center">
+<form action="/LoadFlightsListById" method="post" >
+	<div><span>Buscador por Id</div> <input type="number" name="id"/> </span>
+	<input type="submit" class="btn btn-secondary" value="Filter">
+</form>
+<form action="/LoadFlightsListByAirplaneName" method="post" >
+	<div><span>Buscador por Airplane Name </div><input type="text" name="airplane"/> </span>
+	<input type="submit" class="btn btn-secondary" value="Filter">
+</form>
+<form action="/LoadFlightsListByAirportOrigin" method="post" >
+	<div><span>Buscador por Airport Origin</div> <input type="text" name="airportOrigin"/> </span>
+	<input type="submit" class="btn btn-secondary" value="Filter">
+</form>
+<form action="/LoadFlightsListByAirportDestiny" method="post" >
+	<div><span>Buscador por Airport Destiny</div> <input type="text" name="airportDestiny"/> </span>
+	<input type="submit" class="btn btn-secondary" value="Filter">
+</form>
+</div> 
 <div class="container">
 <table class="table table-striped" style="margin: 0 auto;width: 80%" >
 	<thead>

@@ -98,6 +98,138 @@ public class RepositoryWorker {
 		return listWorkers;
 	}
 	
+	public List<Worker> selectWorkersByID(int idWorker) {
+		List<Worker> listWorkers = new ArrayList<Worker>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT W.idWorker, W.Passport, W.name, W.surname, W.photo, W.address, C.CityName, N.NationalityName, R.RoleName FROM TFG.Workers AS W, TFG.Cities AS C, TFG.Nationalities AS N, TFG.Roles AS R WHERE (W.Id_City = C.idCity) AND (W.Id_Nationality = N.idNationalities) AND (W.Id_Role = R.idRole) AND W.idWorker = (?);");
+			prepareStatement.setInt(1, idWorker);
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Worker workerInDatabase = new Worker();
+				workerInDatabase.setIdworker(resultSet.getInt(1));
+				workerInDatabase.setPassport(resultSet.getString(2));
+				workerInDatabase.setName(resultSet.getString(3));
+				workerInDatabase.setSurname(resultSet.getString(4));
+				workerInDatabase.setPhoto(resultSet.getString(5));
+				workerInDatabase.setAddress(resultSet.getString(6));
+				workerInDatabase.setCityName(resultSet.getString(7));
+				workerInDatabase.setNationalityName(resultSet.getString(8));
+				workerInDatabase.setRoleName(resultSet.getString(9));
+				listWorkers.add(workerInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return listWorkers;
+	}
+	
+	public List<Worker> selectWorkersByPassport(String passport) {
+		List<Worker> listWorkers = new ArrayList<Worker>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT W.idWorker, W.Passport, W.name, W.surname, W.photo, W.address, C.CityName, N.NationalityName, R.RoleName FROM TFG.Workers AS W, TFG.Cities AS C, TFG.Nationalities AS N, TFG.Roles AS R WHERE (W.Id_City = C.idCity) AND (W.Id_Nationality = N.idNationalities) AND (W.Id_Role = R.idRole) AND W.Passport = (?);");
+			prepareStatement.setString(1, passport);
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Worker workerInDatabase = new Worker();
+				workerInDatabase.setIdworker(resultSet.getInt(1));
+				workerInDatabase.setPassport(resultSet.getString(2));
+				workerInDatabase.setName(resultSet.getString(3));
+				workerInDatabase.setSurname(resultSet.getString(4));
+				workerInDatabase.setPhoto(resultSet.getString(5));
+				workerInDatabase.setAddress(resultSet.getString(6));
+				workerInDatabase.setCityName(resultSet.getString(7));
+				workerInDatabase.setNationalityName(resultSet.getString(8));
+				workerInDatabase.setRoleName(resultSet.getString(9));
+				listWorkers.add(workerInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return listWorkers;
+	}
+	
+	public List<Worker> selectWorkersByName(String name) {
+		List<Worker> listWorkers = new ArrayList<Worker>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT W.idWorker, W.Passport, W.name, W.surname, W.photo, W.address, C.CityName, N.NationalityName, R.RoleName FROM TFG.Workers AS W, TFG.Cities AS C, TFG.Nationalities AS N, TFG.Roles AS R WHERE (W.Id_City = C.idCity) AND (W.Id_Nationality = N.idNationalities) AND (W.Id_Role = R.idRole) AND W.name = (?);");
+			prepareStatement.setString(1, name);
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Worker workerInDatabase = new Worker();
+				workerInDatabase.setIdworker(resultSet.getInt(1));
+				workerInDatabase.setPassport(resultSet.getString(2));
+				workerInDatabase.setName(resultSet.getString(3));
+				workerInDatabase.setSurname(resultSet.getString(4));
+				workerInDatabase.setPhoto(resultSet.getString(5));
+				workerInDatabase.setAddress(resultSet.getString(6));
+				workerInDatabase.setCityName(resultSet.getString(7));
+				workerInDatabase.setNationalityName(resultSet.getString(8));
+				workerInDatabase.setRoleName(resultSet.getString(9));
+				listWorkers.add(workerInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return listWorkers;
+	}
+	
+	public List<Worker> selectWorkersBySurname(String surName) {
+		List<Worker> listWorkers = new ArrayList<Worker>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT W.idWorker, W.Passport, W.name, W.surname, W.photo, W.address, C.CityName, N.NationalityName, R.RoleName FROM TFG.Workers AS W, TFG.Cities AS C, TFG.Nationalities AS N, TFG.Roles AS R WHERE (W.Id_City = C.idCity) AND (W.Id_Nationality = N.idNationalities) AND (W.Id_Role = R.idRole) AND W.surname = (?);");
+			prepareStatement.setString(1, surName);
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Worker workerInDatabase = new Worker();
+				workerInDatabase.setIdworker(resultSet.getInt(1));
+				workerInDatabase.setPassport(resultSet.getString(2));
+				workerInDatabase.setName(resultSet.getString(3));
+				workerInDatabase.setSurname(resultSet.getString(4));
+				workerInDatabase.setPhoto(resultSet.getString(5));
+				workerInDatabase.setAddress(resultSet.getString(6));
+				workerInDatabase.setCityName(resultSet.getString(7));
+				workerInDatabase.setNationalityName(resultSet.getString(8));
+				workerInDatabase.setRoleName(resultSet.getString(9));
+				listWorkers.add(workerInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return listWorkers;
+	}
+	
 	public List<Worker> selectWorkersByIdRole(int idRole) {
 		List<Worker> listPilots = new ArrayList<Worker>();
 		Connection conn = manager.open(jdbcUrl);

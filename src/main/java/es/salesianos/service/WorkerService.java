@@ -26,6 +26,22 @@ public class WorkerService {
 		return repositoryWorker.selectWorkers();
 	}
 	
+	public List<Worker> selectAllWorkersById(int id) {
+		return repositoryWorker.selectWorkersByID(id);
+	}
+	
+	public List<Worker> selectAllWorkersByName(String name) {
+		return repositoryWorker.selectWorkersByName(name);
+	}
+	
+	public List<Worker> selectAllWorkersByPassport(String passport) {
+		return repositoryWorker.selectWorkersByPassport(passport);
+	}
+	
+	public List<Worker> selectAllWorkersBySurname(String surname) {
+		return repositoryWorker.selectWorkersBySurname(surname);
+	}
+	
 	public Worker selectAtLogIn(int idWorker) {
 		return repositoryWorker.selectWorkerByID(idWorker);
 	}

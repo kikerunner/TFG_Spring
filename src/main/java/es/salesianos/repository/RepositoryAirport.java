@@ -73,6 +73,99 @@ public class RepositoryAirport {
 		return airportsList;
 	}
 	
+	public List<Airport> selectAllAirportsAndCitiesByIcao(String iCAO) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		List<Airport> airportsList = new ArrayList<Airport>();
+		try {
+			preparedStatement = conn
+					.prepareStatement("SELECT A.idAirport, A.AirportName, A.IATA, A.ICAO, C.idCity, C.CityName FROM TFG.Airports AS A, TFG.Cities AS C WHERE (A.Id_City = C.idCity) AND A.ICAO = (?);");
+			preparedStatement.setString(1, iCAO);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Airport airportFromDataBase = new Airport();
+				airportFromDataBase.setIdairport(resultSet.getInt(1));
+				airportFromDataBase.setAirportName(resultSet.getString(2));
+				airportFromDataBase.setIata(resultSet.getString(3));
+				airportFromDataBase.setIcao(resultSet.getString(4));
+				City cityInDatabase = new City();
+				cityInDatabase.setIdCity(resultSet.getInt(5));
+				cityInDatabase.setCityName(resultSet.getString(6));
+				airportFromDataBase.setCity(cityInDatabase);
+				airportsList.add(airportFromDataBase);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			close(preparedStatement);
+			manager.close(conn);
+		}
+		return airportsList;
+	}
+	
+	public List<Airport> selectAllAirportsAndCitiesByIata(String iATA) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		List<Airport> airportsList = new ArrayList<Airport>();
+		try {
+			preparedStatement = conn
+					.prepareStatement("SELECT A.idAirport, A.AirportName, A.IATA, A.ICAO, C.idCity, C.CityName FROM TFG.Airports AS A, TFG.Cities AS C WHERE (A.Id_City = C.idCity) AND A.IATA = (?);");
+			preparedStatement.setString(1, iATA);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Airport airportFromDataBase = new Airport();
+				airportFromDataBase.setIdairport(resultSet.getInt(1));
+				airportFromDataBase.setAirportName(resultSet.getString(2));
+				airportFromDataBase.setIata(resultSet.getString(3));
+				airportFromDataBase.setIcao(resultSet.getString(4));
+				City cityInDatabase = new City();
+				cityInDatabase.setIdCity(resultSet.getInt(5));
+				cityInDatabase.setCityName(resultSet.getString(6));
+				airportFromDataBase.setCity(cityInDatabase);
+				airportsList.add(airportFromDataBase);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			close(preparedStatement);
+			manager.close(conn);
+		}
+		return airportsList;
+	}
+	
+	public List<Airport> selectAllAirportsAndCitiesByName(String airportName) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		List<Airport> airportsList = new ArrayList<Airport>();
+		try {
+			preparedStatement = conn
+					.prepareStatement("SELECT A.idAirport, A.AirportName, A.IATA, A.ICAO, C.idCity, C.CityName FROM TFG.Airports AS A, TFG.Cities AS C WHERE (A.Id_City = C.idCity) AND A.AirportName = (?);");
+			preparedStatement.setString(1, airportName);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Airport airportFromDataBase = new Airport();
+				airportFromDataBase.setIdairport(resultSet.getInt(1));
+				airportFromDataBase.setAirportName(resultSet.getString(2));
+				airportFromDataBase.setIata(resultSet.getString(3));
+				airportFromDataBase.setIcao(resultSet.getString(4));
+				City cityInDatabase = new City();
+				cityInDatabase.setIdCity(resultSet.getInt(5));
+				cityInDatabase.setCityName(resultSet.getString(6));
+				airportFromDataBase.setCity(cityInDatabase);
+				airportsList.add(airportFromDataBase);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			close(preparedStatement);
+			manager.close(conn);
+		}
+		return airportsList;
+	}
+	
 	public List<Airport> sellectAllAirportsByCountry(int idCountry) {
 		List<Airport> listAirports = new ArrayList<Airport>();
 		Connection conn = manager.open(jdbcUrl);

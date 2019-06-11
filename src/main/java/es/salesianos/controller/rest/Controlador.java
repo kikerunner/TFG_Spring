@@ -182,6 +182,7 @@ public class Controlador {
 		}
 		
 	}
+	
 	@GetMapping(path = "/LoadAirplanesList")
 	public ModelAndView loadAirplaneList() {
 		listAllAirplanes = airplaneservice.listAllAirplanesAndModels();
@@ -196,9 +197,65 @@ public class Controlador {
 		model.addObject("workersList", workersList);
 		return model;
 	}
+	@PostMapping(path = "/LoadWorkersListById")
+	public ModelAndView loadWorkersListById(int id) {
+		workersList = workerService.selectAllWorkersById(id);
+		ModelAndView model = new ModelAndView("workersList");
+		model.addObject("workersList", workersList);
+		return model;
+	}
+	@PostMapping(path = "/LoadWorkersListByName")
+	public ModelAndView loadWorkersListByName(String name) {
+		workersList = workerService.selectAllWorkersByName(name);
+		ModelAndView model = new ModelAndView("workersList");
+		model.addObject("workersList", workersList);
+		return model;
+	}
+	@PostMapping(path = "/LoadWorkersListBySurname")
+	public ModelAndView loadWorkersListBySurname(String surname) {
+		workersList = workerService.selectAllWorkersBySurname(surname);
+		ModelAndView model = new ModelAndView("workersList");
+		model.addObject("workersList", workersList);
+		return model;
+	}
+	@PostMapping(path = "/LoadWorkersListByPassport")
+	public ModelAndView loadWorkersListByPasport(String passport) {
+		workersList = workerService.selectAllWorkersByPassport(passport);
+		ModelAndView model = new ModelAndView("workersList");
+		model.addObject("workersList", workersList);
+		return model;
+	}
 	@GetMapping(path = "/LoadFlightsList")
 	public ModelAndView loadFlightsList() {
 		flightsList = flightService.listFlights();
+		ModelAndView model = new ModelAndView("flightsList");
+		model.addObject("FlightsList", flightsList);
+		return model;
+	}
+	@PostMapping(path = "/LoadFlightsListById")
+	public ModelAndView loadFlightsListById(int id) {
+		flightsList = flightService.listFlightsById(id);
+		ModelAndView model = new ModelAndView("flightsList");
+		model.addObject("FlightsList", flightsList);
+		return model;
+	}
+	@PostMapping(path = "/LoadFlightsListByAirplaneName")
+	public ModelAndView loadFlightsListByAirplaneName(String airplane) {
+		flightsList = flightService.listFlightsByAirplaneName(airplane);
+		ModelAndView model = new ModelAndView("flightsList");
+		model.addObject("FlightsList", flightsList);
+		return model;
+	}
+	@PostMapping(path = "/LoadFlightsListByAirportOrigin")
+	public ModelAndView loadFlightsListByAirportOrigin(String airportOrigin) {
+		flightsList = flightService.listFlightsByAirportOrigin(airportOrigin);
+		ModelAndView model = new ModelAndView("flightsList");
+		model.addObject("FlightsList", flightsList);
+		return model;
+	}
+	@PostMapping(path = "/LoadFlightsListByAirportDestiny")
+	public ModelAndView loadFlightsListByAirportDestiny(String airportDestiny) {
+		flightsList = flightService.listFlightsByAirportDestiny(airportDestiny);
 		ModelAndView model = new ModelAndView("flightsList");
 		model.addObject("FlightsList", flightsList);
 		return model;
@@ -445,6 +502,30 @@ public class Controlador {
 	public ModelAndView getAirportsPage() {
 			ModelAndView model = new ModelAndView("airportsList");
 			airportsList = airportService.listAllAirportsAndCities();
+			model.addObject("AirportsList", airportsList);
+			return model;
+	}
+	
+	@PostMapping(path="/airportSearcher")
+	public ModelAndView getAirportsByName(String airportName) {
+			ModelAndView model = new ModelAndView("airportsList");
+			airportsList = airportService.listAllAirportsAndCitiesByName(airportName);
+			model.addObject("AirportsList", airportsList);
+			return model;
+	}
+	
+	@PostMapping(path="/airportSearcherIata")
+	public ModelAndView getAirportsByIata(String iATA) {
+			ModelAndView model = new ModelAndView("airportsList");
+			airportsList = airportService.listAllAirportsAndCitiesByIata(iATA);
+			model.addObject("AirportsList", airportsList);
+			return model;
+	}
+	
+	@PostMapping(path="/airportSearcherIcao")
+	public ModelAndView getAirportsByIcao(String iCAO) {
+			ModelAndView model = new ModelAndView("airportsList");
+			airportsList = airportService.listAllAirportsAndCitiesByIcao(iCAO);
 			model.addObject("AirportsList", airportsList);
 			return model;
 	}
